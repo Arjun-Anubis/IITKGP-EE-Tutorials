@@ -1,0 +1,302 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[a4paper, top=1in, bottom=1in, left=0.8in, right=0.8in]{geometry}
+
+\title{Tutorial 5: Implicit differentiation and Euler's Theorem}
+\author{Arjun Ghosh}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item Find $\frac{df}{dt}$ at $t=0$ for the following
+\begin{enumerate}
+\item $f(x,y) = x\cos y +  e^{ x }\sin y$ where $x(t) = t^{2} + 1$ and $y(t) = t^{3} + t$ \\
+The derivative can be found using chain rule
+$$
+\frac{df}{dt} = f_{x}\,x_{t} + f_{y}\,y_{t} = (2t)(\cos y + e^{ x }\sin y) + (3t^{2} + 1)(-x\sin y + e^{ x }\cos y)
+$$
+where $x(t)$ and $y(t)$ are given as above
+\item $f(x,y,z) = x^{3} + xz^{2} + y^{3} + xyz$ where $x(t) = e^{ t }, y(t) = \cos t$ and $z(t) = t^{3}$ \\
+Again, by chain rule
+$$
+\frac{d}{dt}f(x,y,z) = f_{x}\, x_{t} + f_{y}\,y_{t} + f_{z}\,z_{t} = (e^{ t })(3x^{2} + z^{2} + yz) + (-\sin t)(3y^{2} + xz) + (3t^{2})(2xz + xy)
+$$
+where the intermediate variables can be expanded as before
+\item $f(x_{1}, x_{2}, x_{3}) = 2x_{1}^{2} - x_{2}x_{3} + x_{1}x_{3}^{2}$ where $x_{1}(t) = 2\sin t, x_{2}(t)=t^{2} -t + 1$ and $x_{3}(t) = 3^{-t}$ \\
+Again by chain rule we have
+$$
+\frac{df}{dt} = (2\cos t)(4x_{1} + x_{3}^{2}) + (2t-1)(-x_{3}) + (-\ln 3 \times 3 ^{-t})(-x_{2} + 2x_{1}x_{3})
+$$
+as before
+\end{enumerate}
+\item 
+\begin{enumerate}
+\item Find $\frac{dy}{dx}$ for the following
+\begin{enumerate}
+\item $x^{y} + y^{x} = c$ \\
+Differentiating we have
+$$
+x^{y} d(y\ln x) + y^{ x}d(x\ln y) = x^{y} \left( \ln (x)dy + \frac{ydx}{x} \right)  +y^{x} \left( \ln (y)dx + \frac{xdy}{y} \right) = 0
+$$
+Collect like terms
+$$
+dy \left( x^{y}\ln(x) + \frac{xy^{x}}{y} \right) + dx\left( y^{x}\ln(y) + \frac{y}{x}x^{y} \right) = 0
+$$
+Divide to find $\frac{dy}{dx}$
+\item $xy^{2} + e^{ x }\sin y^{2} + \arctan (x + y) = c$ \\
+Again, we differentiate
+$$
+y^{2}dx + 2xydy + e^{ x }\sin  y^{2}dx + e^{ x } \cos y^{2} (2ydy) + \frac{1}{1 + (x + y)^{2}} (dx + dy)
+$$
+And collect like terms
+$$
+dy\left( 2xy + 2ye^{ x }\cos y^{2} + \frac{1}{1 + (x+y)^{2}} \right) + dx\left( y^{2} + e^{ x  }\sin y^{2} + \frac{1}{1 + (x + y)^{2}} \right)
+$$
+divide to find $\frac{dy}{dx}$
+\item $\frac{x^{2}}{a^{2}} + \frac{y^{2}}{b^{2}} + 1=0$ \\
+Differentiate
+$$
+\frac{2xdx}{a^{2}} + \frac{2ydy}{b^{2}} = 0
+$$
+and divide to find $\frac{dy}{dx}$
+\item $\ln(x^{2} + y^{2}) + \arctan\left( \frac{y}{x} \right) =0$ \\
+Differentiate using the identity for $d \arctan\left( \frac{y}{x} \right)$
+$$
+\frac{2xdx + 2ydy}{x^{2} + y^{2}} + \frac{ydx-xdy}{x^{2} + y^{2}} = 0
+$$
+Collect like terms and divide to find
+$$
+(2x + y)dx + (2y-x)dy = 0 \implies \frac{dy}{dx} = \frac{y + 2x}{x-2y}
+$$
+\end{enumerate}
+\item Find $\frac{ \partial z }{ \partial x }$ and $\frac{ \partial z }{ \partial y }$ for the following
+\begin{enumerate}
+\item 
+\item
+\item
+\item
+\end{enumerate}
+\end{enumerate}
+\item We have Euler's Theorem in three variables
+\\ $u = f(r,s,t)$ which implies
+$$
+xu_{x} = xu_{r}r_{x} + xu_{t}t_{x} 
+$$
+Repeat for each variable and add to get
+$$
+xu_{x } + yu_{y} + zu_{y} =u_{r}(xr_{x} + yr_{y} ) + u_{s} (ys_{y} + zs_{z}) + u_{t}(xt_{x} + zt_{z})
+$$
+But the terms in the parenthesis vanish because of Euler's theorem and hence 
+$$
+xu_{x} + yu_{y} + zu_{y} = 0
+$$
+\item Euler's Theorem in 2 variables
+Consider $v$ given by
+$$
+v = f(u), u = H_{n}(x,y)
+$$
+where $H_{n}$ is a homogenous function of degree $n$. Then we know what
+$$
+xv_{x} = xu_{x} \frac{dv}{du}
+$$
+similarly for $y$, thus
+$$
+\boxed{
+xv_{x} + yv_{y} = \frac{dv}{du}(xu_{x} + yu_{y}) =nu \frac{ dv}{du}
+}
+$$
+by Euler's Theorem
+\item Determine whether the function is homogenous and determine its degree
+\begin{enumerate}
+\item Not homogenous
+\item Not homogenous
+\item Homogenous, degree 1
+\item Not homogenous
+\item Not homogenous
+\item Homogenous, degree $\frac{1}{20}$
+\item Homogenous, degree 4
+\item Homogenous, degree -1
+\end{enumerate}
+\item 
+Clearly $f(x,y)$ is homogenous and of degree $0$ hence by Euler's Theorem
+$$
+xf_{x} + yf_{y} = x\left( -\frac{y}{x^{2}} + \frac{1}{y} \right) + y\left( \frac{1}{x}-\frac{x}{y^{2}} \right) = 0
+$$
+\item
+Clearly the degree of $f(x,y)$ is $1$, hence $k=1$
+\item Linear Transformations
+If $y = f(x + ct) + \phi(x-ct)$ prove that $y_{tt} = c^{2} y_{xx}$, in other words, show that a disturbance travelling at speed $\pm c$ satisfies the wave equation
+
+Let $u = x + ct$ and $v=x-ct$ then $y = f(u) + \phi(v)$
+$$
+y_{x x} = (y_{u}u_{x} + y_{v}v_{x})_{x}= (y_{u} + y_{v})_{x} = (f'(u)+\phi'(v))_{x} = f''(u)u_{x} + \phi''(v)v_{x} = f''(u) + \phi''(v)
+$$
+using $u_{x}=v_{x}=1$
+$$
+\boxed{
+y_{tt} = (y_{u}u_{t} + y_{v}v_{t})_{t} = c(f'(u) - \phi'(v))_{t} = c^{2}(f''(u)+\phi''(v)) = c^{2}y_{xx}
+}
+$$
+using $u_{t} = -v_{t} = c$
+\item Heat Diffusion Equation
+If $u = e^{ -mx }sin(nt-mx)$ then prove that $2m^{2}u_{t} = n u_{xx}$
+Note that for a given $t$, that is to say, at a point in time, $u$ undergoes damped oscillations with decay constant $m$ and frequency $m$, thus $m$ is to be viewed as a wavenumber or spatial frequency, thus as far as space is concerned, as such, let $\phi = nt-mx$ then we have
+$$
+e^{ nt }u = e^{ \phi }\sin \phi
+$$
+We have
+$$
+v_{\phi \phi} -2v_{\phi} + 
+$$
+
+\item
+Say we have
+$$
+x^{x}  y^{y} z^{z} = k \implies x\ln x + y\ln y + z \ln z = \ln k
+$$
+Now take the total differential of $\ln k$
+$$
+0 = (\ln ex)dx + (\ln ey)dy + (\ln ez)dz
+$$
+Re interpret this as the total differential of $z$ which gives
+$$
+dz = \frac{\ln(ex)}{\ln ez}dx + \frac{\ln (ey)}{\ln(ez)}dy
+$$
+comparing this with the standard total differential we have
+$$
+z_{x} = \frac{\ln(ex)}{\ln ez}; z_{y}= \frac{\ln(ey)}{\ln ez}
+$$
+thus $z_{yx}$ is given by
+$$
+z_{yx} = \left( \frac{\ln(ey)}{\ln(ez)} \right)_{x} = -\frac{\ln(ey)}{\ln ^{2}(ez)} \times\frac{1}{ez}\times e\times z_{x}
+$$
+which is
+$$
+z_{yx} = -\frac{\ln(ey)\ln (ez) }{z\ln ^{3}(ez)}
+$$
+now if $x=y=z$ then this simplifies to
+$$
+\boxed{
+z_{yx} = -\frac{1}{x\ln ex}
+}
+$$
+\item
+We have
+$$
+u = x^{2} \arctan \frac{y}{x} -y^{2} \arctan \frac{x}{y} = (x^{2} + y^{2})\arctan \frac{y}{x} -\frac{\pi}{2}y^{2}
+$$
+Now 
+$$
+u_{y} = 2y\arctan\left( \frac{y}{x} \right) -x - \pi y
+$$
+And so
+$$
+\boxed{
+u_{yx} = \frac{2y}{x^{2} +y^{2}}(y) - 1 = \frac{y^{2}-x^{2}}{x^{2} + y^{2}}
+}
+$$
+
+\item
+Recall from Q4 that
+$$
+xu_{x} + yu_{y} = nz \frac{du}{dz}
+$$
+where $n=2$ and $u(z) = \arctan(z)$ and $z=\frac{x^{3} + y^{3}}{x-y}$, so we have
+$$
+xu_{x} + yu_{z} = \frac{2z}{1 + z^{2}} 
+$$
+but we have $z= \tan u$ so $\sin 2u = \frac{2z}{1 + ^{2}}$, thus
+$$
+xu_{x} + yu_{y} = \sin 2u
+$$
+
+\item Generalised Euler's Theorem \\
+Let us define the Eulerian Operator $\mathbf{L} = x\partial_{x} + y\partial_{y}$, let $u$ be a function of $z$ which is homogenous in $x$ and $y$ of order $n$, then
+$$
+v = \mathbf{L}[u] = xu_{x} + yu_{y} = (xz_{y} + yz_{y}) \frac{du}{dz} = n z \frac{du}{dz} 
+$$
+That is to say, that if $a(z)$ is a function of a homogenous function of $x$ and $y$ then
+$$
+\boxed{
+\mathbf{L}[a] = nza_{z}
+}
+$$
+Now consider 
+$$
+\begin{aligned}
+\mathbf{L}[\mathbf{L}[u]] = 
+\mathbf{L} [v] &= xv_{x} + yv_{y} \\
+&= x(xu_{xx} + u_{x} + yu_{yx}) + y(yu_{yy} + u_{y}+xu_{xy})  \\
+&=x^{2}u_{x x} + 2xy u_{xy} + y^{2} u_{yy} + (xu_{x}+ yu_{y}) \\
+&=x^{2}u_{x x} + 2xy u_{xy} + y^{2} u_{yy} + nzu_{z}
+\end{aligned}
+$$
+but from the above equation we have
+$$
+\mathbf{L}[\mathbf{L}[u]] = nL[z u_{z}] = n^{2}z(zu_{z})_{z} = n^{2}z(u_{z} + zu_{zz}) = n^{2}(zu_{z } + z^{2}u_{zz})
+$$
+Equating both evaluations we have
+$$
+x^{2}u_{xx} + 2xy\, u_{xy} + y^{2} u_{yy} = n(n-1)\left[ zu_{z} \right] + n^{2}z^{2} \left[ u_{zz} \right]
+$$
+Apply this to the function $u = \arcsin z$ and $z = \sqrt{ \dots }$, $n = -\frac{1}{12}$, we have
+
+\item
+Now if we define $u = vw$ where $v=x$ and $w =\ln(z)$ and $z = \frac{y}{x}$ and $n=0$, then by the result of the previous question we have
+$$
+x^{2}v_{x x} + 2xy \, v_{xy} + y^{2} v_{yy} = 0
+$$
+and we know
+$$
+u_{xx} = (u_{x})_{x} = (v + xv_{x})_{x} = 2v_{x} + x v_{xx}
+$$
+and
+$$
+u_{xy} = (v + xv_{x})_{y} = v_{y} + xv_{xy}
+$$
+and 
+$$
+u_{yy} = (xv_{x})_{x} = xv_{y y }
+$$
+Substituting
+$$
+\boxed{
+x^{2}u_{xx} + 2xy \, u_{xy} + y^{2} u_{yy} = 0
+}
+$$
+
+\item
+\item
+\item
+\item
+\item
+\begin{enumerate}
+\item
+\item
+\end{enumerate}
+\item
+\item
+\item Invariance of Laplacian
+If we have $x = \xi \cos \alpha - \eta \sin \alpha$ and $y = \xi \sin \alpha + \eta \cos \alpha$, which is a rotated set of coordinates, and gives $x_{\xi} = y_{\eta} = \cos \alpha$ and $-x_{\eta }= y_{\xi}=\sin \alpha$
+$$
+\begin{aligned}
+u_{\xi \xi} &= (u_{x}x_{\xi} + u_{y}y_{\xi})_{\xi} \\& = (u_{x}\cos \alpha + u_{y}\sin \alpha) _{\xi} \\
+&= (u_{xx}x_{\xi}\cos \alpha + u_{yy}y_{\xi}\sin \alpha) \\&= (u_{xx}\cos ^{2}\alpha + u_{yy}\sin ^{2} \alpha)
+\end{aligned}
+$$
+
+Similarly 
+$$
+u_{\eta \eta} = (u_{xx}\sin ^{2}\alpha + u_{yy}\cos ^{2} \alpha) 
+$$
+adding the two we have
+$$
+u_{\eta \eta} + u_{\xi \xi} = u_{x x} + u_{y y}
+$$
+
+\end{enumerate}
+\end{enumerate}\end{document}

@@ -1,0 +1,223 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[a4paper, top=1in, bottom=1in, left=0.8in, right=0.8in]{geometry}
+
+\title{Tutorial 3: Advanced Calculus}
+\author{Arjun Ghosh}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Solutions to Problems}
+
+\begin{enumerate}
+	\item
+	
+		\begin{enumerate}
+			\item 
+				Clearly with $y=mx$ this limit does not exist
+			\item
+				Same as above
+			\item
+				Put $x = my^{2}$, to obtain
+				$$
+				L = |m|e^{ -|m| }
+				$$
+				which depends on m, and thus the limit does not exist
+			\item
+				Put $y=mx$
+			\item
+				Put $y=mx^{2}$, this gives us the expression
+				$$
+				L = \frac{mx^{4}}{x^{4 }+mx^{4}} = \frac{m}{1+m}
+				$$
+				which again depends on m, and thus the limit does not exist
+			\item
+				Put $r = mx$
+			\item
+				$y=mx$
+			\item
+				Limit does exist and is equal to $1$
+			\item
+				Consider $u = xy(x+y)$
+				then
+				$$
+				f(x) = \frac{\sin u}{u} (x+y)
+				$$
+				Clearly this tends to $0$
+			\item
+				Here we have
+				$$
+				f(x,y) = (x-y)\left[ 1 + \frac{xy}{x^{2} + y^{2}} \right]
+				$$
+				which reduces to
+				$$
+				f(x,y) = \frac{x-y}{ \frac{x}{y} + \frac{y}{x} }
+				$$
+				The denominator is bounded $|D| \geq 2$ and thus this tends to $0$
+			\item
+				Put $z^{2} = ky = hx$
+		\end{enumerate}
+
+	\item
+		\begin{enumerate}
+			\item
+				I will prove this proposition in more detail to outline the method of proof for the others
+
+				We have the function
+				$$
+				f(x,y) = \frac{4xy^{2}}{x^{2} + y^{2}}
+				$$
+				and we want to prove that the limit 
+				$$
+				\lim_{ (x,y) \to (0,0) } f(x,y) = 0
+				$$
+				that is to say, the limit exists and is equal to $0$, we will use the $\epsilon-\delta$ definition of limit to prove this.
+				We establish a bound on $|f(x,y)-L|$, then we use this bound to find $\delta$ such that
+				$|(x,y)|<\delta_{\epsilon} \implies |f(x,y)-L| < \epsilon$
+
+				So in this case, we consider
+				$$
+				|\frac{4xy^{2}}{x^{2} + y^{2}}| \leq 4\sqrt{ x^{2} + y^{2} }
+				$$
+				So now if $\epsilon = 4\delta$, $\sqrt{ x^{2} + y^{2} }< \delta$ implies
+				$$
+				\epsilon = 4\delta > 4\sqrt{ x^{2} + y^{2} } \geq |f(x,y)-L|
+				$$
+				which completes our proof
+			\item
+				Here we have to make a change of variables to use our template, 
+				Let $u = x+ 1 \implies x = u-1$ and similarly for $v = y +1 \implies y = v-1$
+				As before, we want to prove that
+				$$
+				\lim_{ (u,v) \to 0,0 } (u-1)(v-1-2u + 2)  = -1
+				$$
+				we can assume $|u|<1$ and $|v|<1$, now consider
+				$$
+				|f(u,v)-L| = |(u-1)(v-2u+1)+1| = |uv-2u^{2} + u -v + 2u|
+				$$
+				which is
+				$$
+				|uv-2u^{2} +3u-v|\leq |uv|+2|u^{2}| +3|u| + |v|
+				$$
+				now apply $|u|<1$ and $|u|\leq \sqrt{ u^{2} + v^{2} }$ and $|v|\leq \sqrt{ u^{2} + v^{2} }$ giving
+				$$
+				|f(u,v)-L| < 7\sqrt{ u^{2} + v^{2} }
+				$$
+				If we set $7\delta  = \epsilon$ then $\sqrt{ u^{2} + v^{2} }<\delta$ implies
+				$$
+				\epsilon = 7\delta > 7\sqrt{ u^{2} + v^{2} } > |f(u,v)-L|
+				$$
+
+			\item
+				define $u = x-1$ so we want
+				$$
+				\lim_{ (u,y) \to (0,0) } f(u,y) = \frac{u^{2}\ln(1 + u)}{u^{2} + y^{2}} =0
+				$$
+				consider 
+				$$
+				|f(u,y)-L| = |\frac{u^{2}\ln(1+u)}{u^{2} + y^{2}}| = |u^{2}/(u^{2} + y^{2})| \ln(1 + u) \leq \ln(1 + u) \leq \ln(e^{ u }) = \leq \sqrt{ u^{2} + y^{2} }
+				$$
+				using $e^{ u}\geq 1+u$ from calculus, now if $\delta = \epsilon$, $\delta > \sqrt{ u^{2} + y^{2} }$ implies
+				$$
+				\epsilon = \delta > \sqrt{ u^{2} + y^{2} } \geq |f(u,y)-L|
+				$$
+				which completes our proof
+
+			\item
+				Let $u = x + 2$, $v = y-2$, now we need to prove that
+				$$
+				\lim_{ (u,v) \to (0,0) } u  -v + 4 = 4   
+				$$
+				now consider 
+				$$
+				|f(u,v)-L| = |u-v|\leq |u| + |v|\leq 2\sqrt{ u^{2} + v^{2} }
+				$$
+				Now if $\epsilon = 2\delta$ then $\delta > \sqrt{ u^{2} + v^{2} }$ implies
+				$$
+				\epsilon = 2\delta > 2\sqrt{ u^{2} + v^{2} } > |f(u,v)-L|
+				$$
+				Completing our proof
+
+			\item
+				Here we want to prove that
+				$$
+				\lim_{ (x,y) \to (0,0) } f(x,y) = xy \frac{x^{2}-y^{2}}{x^{2} + y^{2}}
+				$$
+				Clearly $x^{2} -y^{2}<x^{2} + y^{2}$ which gives us
+				$$
+				|f(x,y)-L| = |xy\frac{x^{2}-y^{2}}{x^{2} + y^{2}}| \leq |xy|
+				$$
+				Assume $|x|<1$ then we have
+				$$
+				|xy|< |y|< \sqrt{ x^{2} + y^{2} }
+				$$
+				now if $\delta = \epsilon$, $\delta > \sqrt{ x^{2} + y^{2} }$ implies
+				$$
+				\epsilon = \delta > \sqrt{ x^{2} + y^{2} } \geq |f(x,y)-L|
+				$$
+				which completes our proof
+
+			\item
+				We have
+				$$
+				f(x,y) = x \sin x \cos y
+				$$
+				We want to prove that
+				$$
+				\lim_{ (x,y) \to (0,0) } f(x,y) = L = 0 
+				$$
+				consider
+				$$
+				|f(x,y)-L| = |x\sin x\cos y|\leq |x|\leq \sqrt{ x^{2} + y^{2} }
+				$$
+				now if $\delta = \epsilon$, $\delta > \sqrt{ x^{2} + y^{2} }$ implies
+				$$
+				\epsilon = \delta > \sqrt{ x^{2} + y^{2} } \geq |f(x,y)-L|
+				$$
+				which completes our proof
+
+			\item
+				We have
+				$$
+				f(x,y) = \frac{x^{2}}{\sqrt{ x^{2} + y^{2} }}
+				$$
+				We want to prove that
+				$$
+				\lim_{ (x,y) \to (0,0) } f(x,y) = L = 0 
+				$$
+				consider
+				$$
+				|f(x,y)-L| =\frac{x^{2}}{\sqrt{ x^{2} + y^{2} }}|\leq \sqrt{ x^{2} + y^{2} }
+				$$
+				since, $x^{2} \leq x^{2} + y^{2}$, now if $\delta = \epsilon$, $\delta > \sqrt{ x^{2} + y^{2} }$ implies
+				$$
+				\epsilon = \delta > \sqrt{ x^{2} + y^{2} } \geq |f(x,y)-L|
+				$$
+				which completes our proof
+			\item
+				We have
+				$$
+				f(x,y) = \frac{x^{2}y^{2}}{x^{2} + y^{2}} 
+				$$
+				We want to prove that
+				$$
+				\lim_{ (x,y) \to (0,0) } f(x,y) = L = 0 
+				$$
+				consider
+				$$
+				|f(x,y)-L| = \frac{x^{2}y^{2}}{x^{2} + y^{2}} < x^{2} + y^{2} < \sqrt{ x^{2} + y^{2} }
+				$$
+				if we assume $x^{2} + y^{2} < 1$ now if $\delta = \epsilon$, $\delta > \sqrt{ x^{2} + y^{2} }$ implies
+				$$
+				\epsilon = \delta > \sqrt{ x^{2} + y^{2} } \geq |f(x,y)-L| 
+				$$
+				which completes our proof
+		\end{enumerate}
+\end{enumerate}
+
+
+\end{document}

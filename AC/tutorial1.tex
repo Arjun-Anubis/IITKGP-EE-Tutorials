@@ -1,0 +1,383 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{Problem Set 6}
+\author{Arjun Ghosh}
+\date{\today}
+
+\begin{document}
+\maketitle
+\section{Question 1}
+Consider two $x$ values, $x=0$ and $x = L$ where $L \to \infty$, clearly
+$$
+f(x) = 2x^{3} + 5x -9  = -9
+$$ at $x=0$ and 
+$$
+f(L) \to \infty \text{ as } L \to \infty
+$$
+thus $\exists \,x \in [0,\infty) :f(x) = 0$ hence, $f(x)$ has at least one root, further, for the sake of contradiction let us assume there exist two or more roots of $f(x)$, let any two of them be $x_{1}$ and $x_{2}$, then by Rolle's theorem
+$$
+f'(x) = 6x^{2} + 5 = 0
+$$
+for some $c \in (x_{1}, x_{2})$ which is clearly absurd, thus our assumption must be false, and thus there is only one root of $f(x)$
+
+\section{Question 2}
+\subsection{Part (a)}
+Consider $f(x) = |x-1|$ in the interval $[0,2]$, clearly $f(x)$ is not differentiable at $x=1$, since $f'(1^{-}) = -1$ and $f'(1^{+})=1$, thus it does not satisfy the conditions for Rolle's theorem and it doesn't satisfy its consequences either since $\not\exists \, x \in (0,2) : f'(x) = 0$
+
+\subsection{Part (b)}
+$$
+f(x) = 1 + x^{2/3}
+$$
+in the interval $[-8,8]$, simply differentiating we have
+$$
+f'(x) = \frac{2}{3}x^{-1/3}
+$$
+which is not defined for $x=0$ and clearly the derivative is not continuous at $x=0$ anyways, thus it does not satisfy the conditions for Rolle's theorem and clearly there does not exist $c \in[-8,8]: f'(c) = 0$
+
+\subsection{Part (c)}
+$$
+f(x) = x \sin \frac{1}{x}; f(0) = 0
+$$
+Consider
+$$
+f'(0) = \lim_{ h \to 0 } \frac{\left( h\sin\left( \frac{1}{h} \right)  \right)}{h} = \lim_{  h \to 0 } \sin\left( \frac{1}{h} \right)
+$$
+does not exist, hence it does not satisfy the conditions for Rolle's theorem, differentiating on the differentiable intervals
+$$
+f'(x) = \sin\left( \frac{1}{x} \right) - \frac{x\cos\left( \frac{1}{x} \right)}{x^{2}} = \sin\left( \frac{1}{x} \right) -\frac{1}{x}\cos\left( \frac{1}{x} \right)
+$$
+Setting it to $0$
+$$
+\tan\left( \frac{1}{u} \right) = \frac{1}{u}
+$$
+There are infinitely many solutions to this equation in the interval $\frac{1}{u} \in\left( -\frac{\pi}{2}, \frac{\pi}{2} \right)$ or $u \in \left( \infty, -\frac{2}{\pi} \right) \cup\left( \frac{2}{\pi}, u \right)$, so there do exist value of $c$ in the interval which satisfy the consequences of Rolle's theorem even though its conditions are not satisfied.
+
+\section{Question 3}
+\subsection{Part (a)}
+In the interval $\left[ \frac{\pi}{4}, \frac{3\pi}{4} \right]$, Cauchy's MVT gives us
+$$
+\frac{f'(\xi)}{g'(\xi)} = \frac{1-1}{1-(-1)} = 0 = -\frac{\cos(\xi)}{\sin(\xi)}
+$$
+Clearly $\xi = \frac{\pi}{2}$ satisfies this condition
+
+\subsection{Part (b)}
+In the interval $\left[ 0,  \frac{1}{2} \right]$ Cauchy's MVT gives us
+$$
+\frac{f'(\xi)}{g'(\xi)} = \frac{\frac{3}{2}(1+\xi)^{1/2}}{\frac{1}{2}(1+\xi)^{-1/2}} = 3(1+\xi) = \frac{f(b)-f(a)}{g(b) -g(a)} 
+$$
+which gives us
+$$
+3(1+\xi) = \frac{\left( u \right)^{3/2}-1}{\sqrt{ u }-1} \implies \xi = \frac{1}{3} (u + \sqrt{ u } + 1)-1
+$$
+where $u = \frac{3}{2}$
+
+\section{Question 4}
+We write LMVT as: for an interval $[a,b]$ if $f(x)$ is continuous and differentiable in the corresponding open interval $(a,b)$, then $\exists \, c \in (a,b) : f'(c) = \frac{f(b)-f(a)}{b-a}$
+
+Now define $\theta = \frac{c-a}{b-a}$, since 
+$$
+c \in(a,b) \implies c-a \in(0,b-a) \implies \theta \in(0,1)
+$$
+Thus we have
+$$
+\boxed{
+f'(c) = f'(a + c-a) = f'(a + \theta(b-a)) = \frac{f(b)-f(a)}{b-a}
+}
+$$
+Now we set $b-a = h$ and $a = x$ so we have
+$$
+f'(x + \theta h) = \frac{f(x + h)-f(x)}{h}
+$$
+
+Now, before we continue, let us examine this equation, if we apply Taylor's theorem to $f(x +h)$, $i$.$e$. in the interval $(x,x+h)$ we find $\theta_{2} \in (0,1)$ such that
+$$
+hf'(x + \theta h) = \left( f(x) + hf'(x) + \frac{h^{2}}{2}f''(x + \theta_{2}h) \right)-f(x)
+$$
+or
+$$
+\frac{f'(x + \theta h)-f'(x)}{h} =\frac{1}{2}f''(x +\theta_{2}h)
+$$
+Now if we take the limit as $h \to 0$
+$$
+\lim_{ h \to 0 } \frac{f'(x + \theta h)-f(x)}{h} = \theta f''(x) = \lim_{  h \to 0 } \frac{1}{2}f''(x + \theta_{2}h)
+$$
+which implies
+$$
+\lim_{ h \to 0 } \theta = \frac{1}{2}
+$$
+as a consequence of Taylor's theorem, this however requires the existence of the second derivative of $f(x)$ at $x$.
+
+Clearly, $\theta = g(x,h)$, $i$.$e$. $\theta$ is a function of $x$ and $h$, thus
+
+\subsection{Part (a)}
+for $f(x) = x^2$
+We have
+$$
+f(x + h) = (x+h)^{2} = x^{2} + 2xh + h^{2}
+$$
+or 
+$$
+\frac{f(x + h)-f(x)}{h} = 2x + h = f'(x + \theta h) = 2(x + \theta h) = 2x + 2\theta h
+$$
+Clearly
+$$
+\theta = \frac{1}{2} \, \forall \,x, h
+$$
+which matches what we had earlier
+\subsection{Part (b)}
+$$
+\frac{f(x + h)-f(x)}{h} = e^{ x }\left(  \frac{e^{ h }-1}{h} \right)
+$$
+While
+$$
+f'(x + \theta h) = e^{ x }e^{ \theta h }
+$$
+Thus we have
+$$
+\theta = \frac{1}{h} \ln \frac{e^{ h }-1}{h}
+$$
+In this case we have $\theta$ not dependent on $x$, a graph of this function is given, taking the limit as
+$$
+\theta_{0} = \lim_{ h \to 0 } \frac{1}{h} \ln \frac{e^{ h }-1}{h} = \lim_{ h \to 0 } \frac{1}{h}\ln \frac{h + \frac{h^{2}}{2} +O(h^{3})}{h}
+$$
+which is
+$$
+\theta_{0} = \lim_{ h \to 0 }\frac{1}{h} \ln \left( 1 + \frac{h}{2} + O(h^{2}) \right) = \lim_{ h \to 0 } \frac{1}{2} + O(h)  = \frac{1}{2}
+$$
+which matches what we had earlier.
+
+\subsection{Part (c)}
+$$
+\frac{f(x+h)-f(x)}{h} = \frac{1}{h}\ln \left( 1 + \frac{h}{x}\right) = f'(x + \theta h) = \frac{1}{x + \theta h}
+$$
+or we have
+$$
+\theta = \frac{1}{h}\left( \frac{h}{\ln \left( 1 + \frac{x}{h} \right)}-x \right)
+$$
+This time, $\theta$ is a function of $x$ and $h$, our claim is that the dependence on $x$ dies out as $h \to 0$ we have
+$$
+\theta = \lim_{ h \to 0 } \frac{1}{h}\left( \frac{h}{\left( \frac{x}{h}  \right)-\frac{1}{2}\left( \frac{x}{h} \right)^{2} +O\left( \frac{h^{3}}{x^{3}} \right)}  -x\right)
+$$
+which is
+$$
+\lim_{ h \to 0 } \frac{h}{x}\left( \frac{1}{1-\frac{1}{2}\left( \frac{x}{h} \right)+O\left( \left( \frac{x}{h} \right)^{2} \right)}-1 \right) = \frac{1}{2}
+$$
+which confirms our claim
+
+\section{Question 5}
+\subsection{Part (a)}
+By LMVT, since $f$ is continuous and differentiable, for $c \in [1,2]$
+$$
+f(2) = f(1) + f'(c)(1)
+$$
+so
+$$
+f(1) = f(2) - f'(c) = -5 -f'(c)
+$$
+but this lies between
+$$
+f(1) \in [-7,-3]
+$$
+since $f'(c) \in [-2,2]$ and this maximum value is achieved if $f(x)$ is linear in the interval $(1,2)$
+
+\subsection{Part (b)}
+We know that
+$$
+28^{1/3} = (27 +1)^{1/3} = 3\left( 1 + \frac{1}{27} \right)^{1/3}
+$$
+applying LMVT we have
+$$
+\left( 1 + u \right)^{1/3} = 1 + \frac{u}{3} (1+ v)^{-2/3}
+$$
+where $u = \frac{1}{27}$ and $v \in (0,u)$, let us assume without proof for now that $(1+v)^{-2/3} = 1 + O(u)$, which is a consequence of Taylor's theorem. So we have
+$$
+(28)^{1/3} = 3 + \frac{1}{27} + O\left( \left( \frac{1}{27} \right)^{2} \right) \approx \frac{82}{27}
+$$
+
+\subsection{Part (c)}
+We have $f''(x) \geq 0$ for $x \in [a,b]$, Let us assume for the sake of contradiction that
+$$
+f\left( \frac{x_{1} + x_{2}}{2} \right) > \frac{1}{2}[f(x_{1}) + f(x_{2})]
+$$
+for *some* $x_{1},x_{2} \in[a,b]$. Assume WLOG $x_{2}> x_{1}$, now consider the point $\bar{x} = \frac{1}{2}(x_{1} + x_{2})$, also define $\Delta x  = \bar{x} -x_{1} = x_{2} -\bar{x}$, thus $2\Delta x = x_{2} -x_{1} > 0$ hence $\Delta x > 0$
+
+then by LMVT on the intervals $(x_{1},\bar{x})$ and $(\bar{x}, x_{2})$ (whose conditions are satisfied by the assumption that $f''(x)$ exists and is positive) yield $\xi_{1} \in(x_{1},\bar{x})$ and $\xi_{2} \in(\bar{x}, x_{2})$ and thus $\xi_{2} > \xi_{1}$ such that
+$$
+f'(\xi_{1}) = \frac{f(\bar{x})-f(x_{1})}{x-x_{1}}; f'(\xi_{2}) = \frac{f(x_{2})-f(\bar{x})}{x_{2} - \bar{x}}
+$$
+which we rewrite as
+$$
+f(\bar{x}) = f(x_{1}) + f'(\xi_{1})\Delta x = f(x_{2}) -f'(\xi_{2})\Delta x
+$$
+Adding both RHS sides and doubling the LHS
+$$
+2f(\bar{x}) = f(x_{1}) + f(x_{2}) + \Delta x [f'(\xi_{1})-f(\xi_{2})]
+$$
+Or
+$$
+f(\bar{x}) = \frac{1}{2}(f(x_{1}) + f(x_{2}))  + \frac{\Delta x}{2} (f'(\xi_{1})-f'(\xi_{2}))
+$$
+But our assumption now implies
+$$
+\frac{\Delta x}{2} (f'(\xi_{1})-f'(\xi_{2})) >0
+$$
+but since $\Delta x >0$ and $\xi_{2} > \xi_{1}$ this contradicts the statement that $f''(x) > 0$ for $[a,b]$, thus our assumption must be false and thus
+$$
+\boxed{
+f\left( \frac{x_{1} + x_{2}}{2} \right) \leq \frac{1}{2}[f(x_{1}) + f(x_{2})]
+}
+$$
+Completing our proof
+
+\section{Question 6}
+\subsection{Part (a)}
+
+To prove the right hand side of the inequality we apply CMVT to $\sin x$ and $x$ on the interval $[0,x]$ to get
+$$
+\cos \xi = \frac{\sin x}{x} \implies \frac{\sin x}{x}<1 \implies \sin x < x;\, \forall\, x \in\left( 0, \frac{\pi}{2} \right)
+$$
+For the LHS, consider the function
+$$
+\zeta(x) = \frac{x}{\sin x} \implies \zeta'(x) = \frac{\sin x -x\cos x}{(\sin x)^{2}} > 0
+$$
+since $\tan x > x$ in $x \in\left( 0, \frac{\pi}{2} \right)$, therefore
+$$
+\zeta(x) < \zeta\left( \frac{\pi}{2} \right) = \frac{\pi}{2}; \forall x \in \left( 0, \frac{\pi}{2} \right)
+$$
+which gives
+$$
+\boxed{
+\frac{2x}{\pi} < \sin x < x
+}
+$$
+(b)
+Consider the functions $x^n$ and $x$ on the interval $[a,b]$, clearly CMVT gives
+$$
+n\xi^{n-1} = \frac{b^{n}-a^{n}}{b-a}
+$$Now if $n>1$ then $n-1>0$ which implies that $x^{n-1}$ is an increasing function which implies
+$$
+na^{n-1}< n\xi^{n-1} < nb^{n-1}
+$$
+which gives us the inequality
+$$
+\boxed{
+na^{n-1} < \frac{b^{n} - a^{n}}{b-a} < nb^{n-1}
+}
+$$
+(c)
+For the right hand side consider the functions $\log(1+x)$ and $x$ on the interval $[0,x]$ CMVT gives
+$$
+1>\frac{1}{1+ \xi} =\frac{\log(1+x)}{x}
+$$
+which gives 
+$$
+\log(1+x)< x
+$$
+apply LMVT to the function $\log(1+x)$ on the interval $[0,x]$ gives
+$$
+\log(1+x) = 0 + \frac{x}{1 + \xi} > \frac{x}{1+x}
+$$since $\xi < x$ or
+$$
+\boxed{
+\frac{x}{1+x}<\log(1+x)<x
+}
+$$
+$\forall x>0$
+
+7(a)
+Let the intersection happen at some point $\eta \in (a,b)$, now apply LMVT on $(a,\eta)$ and $(\eta, b)$ to give $\xi_{1}, \xi_{2}:\xi_{2}>\xi_{1}$ such that
+$$
+f'(\xi_{1})=f'(\xi_{2}) = m = \frac{f(b)-f(a)}{b-a}
+$$
+now apply Rolle's theorem on $f'(x)$ on the interval $(\xi_{1},\xi_{2})$
+$$
+f''(\zeta) = 0
+$$
+for some $\zeta \in (\xi_{1}, \xi_{2}) \subset (a,b)$
+
+(b) Apply CMVT to $f(x)$ and $x^{2}$ on the interval $[0,1]$ to give
+$$
+\frac{f'(\xi)}{2\xi} = f(1)-f(0)
+$$
+for $\xi \in(0,1)$
+
+(c) Consider $g(x)= f(x)-x$ then $g'(x) = f'(x)-1$, so we have
+$$
+g(a) = g(b) = 0 \implies g'(\xi) = 0
+$$
+for some $\xi \in(a,b)$ , Now apply LMVT to $(a,\xi)$ and $(\xi, b)$ to find $\zeta_{1}, \zeta_{2}$ such that
+$$
+g'(\zeta_{1}) = \frac{g(\xi)}{\xi-a}, g'(\zeta_{2}) = \frac{-g(\xi)}{b-\xi}
+$$
+which must have opposite signs, thus applying IVT between $(\zeta_{1}, \xi)$ and $(\xi,\zeta_{2})$ we can find two numbers $c_{1}, c_{2}$ such that
+$$
+\boxed{
+g'(c_{1})+ g'(c_{2}) = 0 \implies f'(c_{1}) + f'(c_{2}) = 2
+}
+$$
+8 (a)
+We want to prove that there exists $c \in(a,b)$
+$$
+\begin{vmatrix}
+f(a) + (b-a)f'(c) & f(b) \\
+\phi(a) + (b-a)\phi'(c) & \phi(b) 
+\end{vmatrix}=0
+$$
+Consider CMVT on $f(x)$ and $\phi(x)$ on the interval $(a, b)$ we have
+$$
+f(b) = f(a) + \frac{f'(c)}{\phi'(c)} (\phi(b)-\phi(a))
+$$
+(b) Apply CMVT on the functions $f(x)$, $x$, $x^{2}$, $x^{3}$ to get
+$$
+f(b)-f(a) = f'(x_{1})(b-a) = \frac{f'(x)}{2x_{2}}(b^{2}-a^{2}) = \frac{f'(x_{3})}{3x_{3}^{2}}(b^{3}-a^{3})
+$$
+or
+$$
+f'(x_{1})=\frac{f'(x_{2})}{2x_{1}} = \frac{f'(x_{3})}{3x_{3}^{2}}
+$$
+9
+(a)
+Consider $1-\cos x = 2\sin ^{2} \frac{x}{2}$, setting $u = x/2$ we need to prove 
+$$
+\sin x < x
+$$
+which we can do by applying CMVT to these functions
+$$
+\cos \xi = \frac{\sin x }{x}
+$$
+which completes our proof
+
+(b) consider $\frac{f(x)}{x^{2}}$ and $\frac{1}{x^{2}}$ applying CMVT we have
+$$
+\frac{\frac{f(b)}{b^{2}}-\frac{f(a)}{a^{2}}}{\frac{1}{b^{2}}-\frac{1}{a^{2}}} = \frac{\frac{c^{2}f'(c) - 2cf(c)}{c^{4}}}{-\frac{2}{c^{3}}}
+$$
+$$
+\frac{a^{2}f(b)-b^{2}f(a)}{a^{2}-b^{2}} = \frac{1}{2} (2f(c)-cf'(c))
+$$
+as required
+(c)
+Apply CMVT on the functions $\ln x$ and $\arcsin x$ on the interval $[x,1]$ to get
+$$
+\frac{-\ln x}{\frac{\pi}{2}-\arcsin x} = \frac{2\ln x}{2\arcsin x-\pi} = \sqrt{ 1-\frac{1}{\xi^{2}} }
+$$
+which is an increasing function for $\xi$ so we have
+$$
+\frac{2\ln x}{2\arcsin x-\pi} < \frac{\sqrt{ 1-x^{2} }}{x}
+$$
+for $x \in (0,1)$
+
+10
+Apply LMVT between $(a,x_{0})$ and $(x_{0}, b)$ to find $\xi_{1}<\xi_{2}$ such that
+$$
+f'(\xi_{1}) = \frac{f(x_{0})}{x_{0}-a}; f(\xi_{2}) = \frac{-f(x_{0})}{b-x_{0}}
+$$
+Now assume for the sake of contradiction that there does not exist $c \in (a,b)$ such that $f''(c)<0$ which would imply $f'(x)$ is an increasing function which implies
+$$
+f'(\xi_{2}) > f'(\xi_{1}) \text{ since } \xi_{2}>\xi_{1}
+$$
+but this contradicts what we found and thus our assumption, and therefore our assumption must be wrong and there exists $c \in (a,b)$ such that $f''(c)<0$
+
+\end{document}

@@ -1,0 +1,397 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[a4paper, top=1in, bottom=1in, left=0.8in, right=0.8in]{geometry}
+
+\title{Tutorial 4: Partial Derivatives}
+\author{Arjun Ghosh}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item 
+We have the function 
+$$
+f(x,y) = \frac{x^{2} + y^{2}}{|x| + | y|}; (x,y) \neq (0,0)
+$$
+and which is zero at the origin, to clearly for all other points the function is continuous, at the origin, let us consider the expression
+$$
+|f(x,y)-L| = |\frac{x^{2} + y^{2}}{|x| + | y|}| = |x| + | y | -\frac{2|x||y|}{|x| + | y|} \leq | x| + | y| \leq 2\sqrt{ x^{2} + y^{2} }
+$$
+Where $L = 0$, now for all $\epsilon > 0$ choose $\epsilon = 2\delta$, then $\sqrt{ x^{2} + y^{2} } < \delta$ implies
+$$
+\epsilon = 2 \delta > 2\sqrt{ x^{2} + y^{2} } \geq |f(x,y)-L|
+$$
+Therefore
+$$
+\lim_{ (x,y) \to (0,0) } f(x,y) = 0 = f(0,0)
+$$
+Hence $f(x,y)$ is continuous at $(0,0)$, now consider
+$$
+f_{x} = \lim_{ h \to 0 } \frac{f(h,0)-f(0,0)}{h} = \frac{h^{2}}{h|h|} = \frac{h}{|h|}
+$$
+which clearly does not exist as its LHL and RHL are different, similarly
+$$
+f_{y}(0,0) = \lim_{ k \to 0 } \frac{k}{|k|}
+$$
+also does not exist
+\item
+\begin{enumerate}
+\item
+For this function we have 
+$$
+f_{x}(0,0) = \lim_{ h \to 0 } \frac{f(h,0)-f(0,0)}{h} = \frac{0-0}{h} = 0
+$$
+Similarly $f_y (0,0)= 0$, however, putting $y = mx^{2}$ we see that the limit at $(0,0)$ does not exist
+\item
+Both partial derivatives are $0$, however, along the path $y = \sin x$ we have
+$$
+\lim_{ (x,y) \to (0,0) } \frac{x^{3} + y^{3}}{x-y} = \lim_{ x \to 0 } \frac{x^{3} + \sin ^{3}x}{x - x + \frac{x^{3}}{3!}} = 12
+$$
+but along the path $x+y=0$ we have the limit $0$ hence the limit does not exist
+\end{enumerate}
+\item
+The definition of the partial derivative is
+$$
+f_{x}(x_{0},y_{0}) = \lim_{ h \to 0 } \frac{f(x_{0} + h, y_{0})-f(x_{0}, y_{0})}{h}
+$$
+$$
+f_{y}(x_{0},y_{0}) = \lim_{ h \to 0 } \frac{f(x_{0} , y_{0}+k)-f(x_{0}, y_{0})}{k}
+$$
+
+\begin{enumerate}
+\item
+We have
+$$
+f(x,y) = x^{2} + y^{2}
+$$
+The definition gives us
+$$
+f_{x}(x,y) = \lim_{ h \to 0 } \frac{(x + h)^{2} + y^{2} -x^{2} -y^{2}}{h} = \lim_{ h \to 0 } \frac{2xh + h^{2}}{h} = 2x
+$$
+and similarly $f_{y}(x,y)=2y$
+
+\item
+In this case we have a trigonometric with mixed arguments
+$$
+f(x,y) = \sin(3x + 4y)
+$$
+the definition gives us
+$$
+f_{x} = \lim_{ h \to 0 } \frac{\sin(3x + 4y + 3h)-\sin(3x + 4y)}{h} = \lim_{ h \to 0 } \frac{\cos(3x + 4y)}{h} \left( 2\sin \frac{3h}{2} \right)
+$$
+which is clearly
+$$
+f_{x} = 3\cos(3x + 4y)
+$$
+Similarly $f_{y} = 4\cos(3x + 4y)$
+
+\item
+We have a sum of two products
+$$
+f(x,y) = ye^{ -x } + xy
+$$
+Again, 
+$$
+f_{x} = \lim_{ h \to 0 }\frac{ ye^{ -x }e^{ -h }-ye^{ -x }}{h} + \frac{y(x+h-x)}{h} = -ye^{ -x }+ y
+$$
+Similarly
+$$
+f_{y} = e^{ -x } + x
+$$
+
+\item
+This time we have a sum of three terms with only one function of two variables
+
+
+\end{enumerate}
+
+\item
+\begin{enumerate}
+\item
+The function is
+$$
+f(x,y) = \frac{xy}{x + y}
+$$
+both partial derivatives at $(0,0)$ are clearly $0$ further
+$$
+f_{x}(0,y) = \lim_{ h \to 0 } \frac{\frac{y(h)}{y + h}-0}{h} = 1
+$$
+similarly
+$$
+f_{y}(x,0) = 1
+$$
+\item
+Here the function is simply
+$$
+f(x,y) = \ln(1 +xy)
+$$
+now, clearly $f_{x} = f_{y} = 0$ at $(0,0)$ and $f_{x} = y$ and $f_{y}=x$ along $(0,y)$ and $(x,0)$ respectively
+
+\item
+Here the piecewise function is 1 along the axes and 0 elsewhere, clearly this means that both partial derivatives are 0 at $(0,0)$ but 
+$$
+f_{x}(0,y) = \lim_{ h \to 0 } \frac{f(h,y)-f(0,y)}{h} = \lim_{ h \to 0 } \frac{1}{h}
+$$
+if $y \neq 0$ thus the derivatives do not exist
+
+\item
+Here the function is essentially a function of one variable $u = (x-y)$
+$$
+e^{ u } - e^{ -u }= 2\sinh u
+$$
+which gives, 
+$$
+f_{x} = 2\cosh u_{x} = (e^{ u } + e^{ -u })u_{x}
+$$
+at $(0,0)$ $u=0$ 
+$$
+f_{x}(0,0) = 2
+$$
+since $u_{x}=1$ 
+$$
+f_{y}(0,0) = -2
+$$
+since $u_{y}=-1$
+Further for
+$$
+f_{x}(0,y) = (e^{ y } + e^{ -y })(1)
+$$
+and 
+$$
+f_{y}(x,0) = (e^{ x } + e^{ -x })(-1)
+$$
+\item
+Consider the family of curves $y = -x + mx^{3}$, along these curves, the limit at $(x,y) \to (0,0)$ becomes
+$$
+\lim_{ x \to 0 } \frac{x^{3}-(-x + mx^{3})^{3}}{mx^{3}} = \frac{2}{m}
+$$
+which clearly depends on $m$, thus the function $f(x,y)$ is not continuous at $(0,0)$, however, this does not imply that the partial derivatives do not exist, since the the function may be continuous along the axes, we have
+$$
+f_{x}(0,y) = \lim_{ h \to 0 } \frac{1}{h}\frac{h^{3} - y^{3}}{h + y} - \left( -\frac{y^{3}}{y} \right) = \lim_{ h \to 0 } \frac{1}{h}\left( \frac{h^{3}-y^{3}}{h + y} + y^{2}  \right)
+$$
+combining the fractions
+$$
+\lim_{ h \to 0 } \frac{h^{3}-y^{3} +hy^{2} + y^{3}}{h(h + y)} = \lim_{ h \to 0 } \frac{hy^{2}}{hy} = y
+$$
+similarly for $f_{y} = -x$ and both values being $0$ at $(0,0)$
+\end{enumerate}
+
+\item Show that the following functions have first order PD at $(0,0)$ and discuss their differentiability at the origin
+\begin{enumerate}
+\item
+We have
+$$
+f(x,y) = \frac{xy(x^{2}-y^{2})}{x^{2} + y^{2}}
+$$
+Clearly this function has a really nice form in polar coordinates, 
+$$
+f(r, \theta) = \frac{r^{2}}{2} \cos 2\theta \sin 2\theta = \frac{r^{2}}{4} \sin 4\theta
+$$
+Since $\sin 4\theta \in[-1,1]$ is bounded, this function must tend to $0$ as $(r,\theta)\to (0, 0^{r})$, further it tends to zero in the second order, its derivative wrt $r$ also tends to $0$. Thus continuity is guaranteed, consider the partial derivatives at the origin, we have
+$$
+f_{x}(0,0) = \lim_{ h \to 0 } \frac{1}{h} \frac{hy(h^{2}-y^{2})}{h^{2} + y^{2}} -0 = 0
+$$
+Similarly $f_{y}(0,0) = 0$ thus to prove differentiability we need to prove that 
+$$
+\lim_{ (h,k) \to (0,0) } \frac{f(x + h, y + k) - f(x, y)}{\sqrt{ h^{2} + k^{2} }} = 0
+$$
+that is to say, since the first order partial derivatives vanish, the differential is second order or higher
+$$
+= \lim_{ (h,k) \to (0,0) } \frac{1}{\sqrt{ h^{2} + k^{2} }} f(h,k) = \lim_{ (h,k) \to (0,0) } \frac{hk(h^{2} -k^{2})}{(h^{2} + k^{2})^{3/2}} = 0
+$$
+by putting $r =  \sqrt{ h^{2} + k^{2} }$ which gives us $r \sin 4\theta$ which is bounded as before. Hence the function is indeed differentiable at the origin
+\item
+This function also clearly is continuous at the origin
+$$
+f(x,y) = \frac{x^{2}y}{x^{2} + y^{2}}
+$$
+and it also has a nice polar representation as
+$$
+f(r, \theta) = r \sin \theta \cos ^{2} \theta
+$$
+Which makes it tend to zero linearly but not quadratically, thus the first order partial derivatives
+$$
+f_{x}(0,y) = \lim_{ h \to 0 } \frac{f(h,y)-f(0,y)}{h}  = \frac{hy}{h^{2} + y^{2}} = 0
+$$
+while 
+$$
+f_{y}(x,0) = \lim_{ k \to 0 } \frac{f(x,k)-f(x,0)}{k} = \lim_{ k \to 0 } \frac{x^{2}}{x^{2} + k^{2}} = 1
+$$
+Thus at least one of the first order partial derivatives is non-zero, this could also have easily been seen by considering the approach angles $\theta = 0, \pi$ and $\theta = \frac{\pi}{2} , \frac{3\pi}{2}$ for $x$ and $y$ respectively. Now to check differentiability we need to prove that
+$$
+\lim_{ (h,k) \to (0,0) } \frac{f(h,k) - k - f(0,0)}{\sqrt{ h^{2} + k^{2} }} = 0
+$$
+which is
+$$
+\lim_{ (h,k) \to (0,0) } \frac{1}{\sqrt{ h^{2} + k^{2} }}\left( \frac{h^{2}k}{h^{2} + k^{2}}-k \right) = \frac{-k^{3}}{(h^{2} + k^{2})^{3/2}}
+$$
+which does not in fact exist, thus the function is non differentiable at the origin
+
+
+\end{enumerate}
+
+\item
+Again we have a function linear in $r$, which will not be differentiable at the origin because of its $\theta$ dependence, 
+$$
+f(x,y) = \frac{xy}{\sqrt{ x^{2} + y^{2} }} = \frac{r}{2}\sin 2\theta = f(r,\theta)
+$$
+Now the partial derivatives at the origin are 
+$$
+f_{x}(0,0) = \lim_{ h \to 0 } \frac{f(h,0)-f(0,0)}{h} = \lim_{ h \to 0 } \frac{0}{\sqrt{ h^{2}  }} = 0
+$$
+similarly for $f_{y}(0,0) = 0$ so we need to prove that
+$$
+\lim_{ (h,k) \to 0 } \frac{f(x,y)-f(0,0)}{\sqrt{ h^{2} + k^{2} }} = 0
+$$
+but this is clearly false since the limit on the left does not exist, hence the function is not differentiable
+
+\item
+We have the function
+$$
+f(x,y) = \sqrt{ |xy| }
+$$
+We need to prove that it is continuous but non differentiable, even thought both partial derivatives exist and are zero but are discontinuous at the origin.
+
+Away from the origin we have have $f_{x} = \frac{1}{2}\sqrt{ \frac{y}{x} }$ and $f_{y} = \frac{1}{2}\sqrt{ \frac{x}{y} }$, clearly, $f_{x}$ is zero along $y=0$ at all points other than the origin, and therefore it must also have the limit of zero along the x-axis approaching the origin, hence 
+$$
+f_{x}(0,0)=f_{y}(0,0) = 0
+$$
+Now to check differentiability we have
+$$
+\lim_{ (h,k) \to (0,0) } \frac{\sqrt{ |hk| }}{\sqrt{ h^{2} + k^{2} }}
+$$
+Clearly this limit does not exist along $k=mh$
+
+\item
+\begin{enumerate}
+\item
+With the function
+$$
+f(r, \theta) = r^{2} \sin \left( \frac{1}{r^{2}} \right)
+$$
+or
+$$
+f(x,y) = (x^{2} + y^{2})\sin \frac{1}{x^{2} + y^{2}}
+$$
+This will be differentiable, clearly it is continuous due to the bounding of the sine function, further, consider 
+$$
+f_{x}(0,0) = \lim_{ h \to 0 } \frac{f(h,0)-f(0)}{h} = \frac{h^{2} \sin\left( \frac{1}{h^{2}} \right)}{h} = 0
+$$
+similarly for $f_{y}(0,0)=0$, thus we have
+$$
+\lim_{ (h,k) \to (0,0) } \frac{h^{2} + k^{2}}{\sqrt{ h^{2} + k^{2} }}\sin \frac{1}{h^{2} + k^{2}} = 0
+$$
+Hence the function is differentiable at $(0,0)$
+\item
+$$
+f(x,y) = \frac{x^{3}-2y^{3}}{x^{2} + y^{2}} = r (\cos ^{3} \theta - 2\sin ^{3} \theta)
+$$
+
+\end{enumerate}
+
+\item First principle definition of second derivatives \\
+We define
+$$
+f_{xx} = \lim_{ h \to 0 } \frac{f(x + 2h,y) + f(x,y) - 2f(x + h,y)}{h^{2}}
+$$
+iff the first derivative exists and is continuous, 
+$$
+f_{xy} = \lim_{ k \to 0 } \lim_{ h \to 0 } \frac{f(x+h,y+h)+ f(x,y) - f(x,y+k) -f(x + h,y)}{h^{2}}
+$$
+and
+$$
+f_{yx} = \lim_{ h \to 0 } \lim_{ k \to 0 } \frac{f(x+h,y+h)+ f(x,y) - f(x,y+k) -f(x + h,y)}{hk}
+$$
+note carefully the order of the limits, 
+For the function
+$$
+f(x,y) = y \frac{x^{2} -y^{2}}{x^{2} + y^{2}}
+$$
+at the origin, double $x$ derivative is given by
+$$
+f_{xx}(0,0) = \lim_{ h \to 0 } \frac{f(2h, 0) +f(0,0) -2f(h,0)}{h^{2}} = 0
+$$
+because all terms are 0, for the double $y$ derivative
+$$
+f_{yy} = \lim_{ k \to 0 } \frac{f(0,2k) + f(0,0)-2f(0,k)}{k^{2}} = \frac{-2k + 2k}{k^{2}} = 0
+$$
+Now, for $f_{xy}$
+$$
+f_{xy}(0,0) = \lim_{ k \to 0 } \lim_{ h \to 0 } \frac{k \frac{h^{2}-k^{2} }{h^{2} + k^{2}}-k(-1)}{hk}
+$$
+which is 
+$$
+\lim_{ k \to 0 } \lim_{ h \to 0 } \frac{1}{h}\frac{h^{2} -k^{2} + h^{2} + k^{2}}{h^{2} + k^{2}} = \lim_{ k \to 0 } \lim_{ h \to 0 } \frac{2h}{h^{2} + k^{2}} = 0
+$$
+However, 
+$$
+f_{yx} = \lim_{ h \to 0 } \lim_{ k \to 0 } \frac{2h}{h^{2} + k^{2}}
+$$
+does not exist, clearly this means the function is not differentiable at the origin
+\item We have to compare the mixed second order partial derivatives of the function
+$$
+\frac{x^{2}y(x-y)}{x^{2} + y^{2}}
+$$
+Consider the new function
+$$
+d(h,k) = \frac{f(h,k) + f(0,0)-f(0,k)-f(h,0)}{hk}
+$$
+which is
+$$
+d(h,k) = \frac{h(h-k)}{h^{2} + k^{2}}
+$$
+evidently
+$$
+f_{xy} = \lim_{  k \to 0 } \lim_{ h \to 0 } d(h,k) = 0
+$$
+while
+$$
+f_{yx} = \lim_{ h \to 0 } \lim_{ k \to 0 } d(h,k) = \lim_{ h \to 0 } \frac{h^{2}}{h^{2}} = 1
+$$
+Clearly 
+$$
+f_{xy}(0,0) \neq f_{yx}(0,0)
+$$
+and the function is in fact differentiable
+\item Find the total derivative of the following functions
+\begin{enumerate}
+\item $w = x^{2} + xy^{2} + xy^{2}z^{3}$ \\
+Clearly
+$$
+dw = 2xdx + y^{2}dx + 2xydy + y^{2}z^{3}dx + 2xyz^{3} dy + 3ax^{2}z^{2} dz
+$$
+\item $z = \arctan \frac{x}{y}$ \\
+We have
+$$
+dz = \frac{y^{2}}{y^{2} + x^{2}}\frac{ydx - xdy}{y^{2}} = \frac{ydx -xdy}{x^{2} + y^{2}}
+$$
+\item $u = e^{ x^{2} + y^{2} + z^{2} }$ \\
+We have
+$$
+\ln u = x^{2} + y^{2} + z^{2} \implies \frac{du}{u} = 2(xdx + ydy + zdz) \implies du = 2e^{ x^{2} + y^{2} + z^{2} }(xdx + ydy + zdz)
+$$
+\item $w=\sin(3x + 4y) + 5e^{ z }$ \\
+Both terms individually give
+$$
+dw = \cos(3x + 4y)(3dx + 4dy) + 5e^{ z }dz
+$$
+\item $w = z\ln y + y\ln z + xyz$ \\
+Again evaluating term by term we have
+$$
+dw = \ln y dz + \frac{z}{y}dy \ln z dy + \frac{y}{z} dz + yzdx + xzdy + xydz
+$$
+\item $u = \sqrt{ x^{2} + y^{2} + z^{2} }$ \\
+Here $u^{2} = x^{2} + y^{2} + z^{2}$
+$$
+2udu = 2xdx + 2ydy + 2zdz \implies du = \frac{xdx + ydy + zdz}{\sqrt{ x^{2} + y^{2} + z^{2} }}
+$$
+\item $w = e^{ x }\sin(y + 2z)-x^{2}y^{2}$ \\
+
+\item $w = e^{ x/y } + e^{ y/x }$  \\
+
+\end{enumerate}
+\end{enumerate}
+\end{document}

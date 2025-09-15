@@ -1,0 +1,38 @@
+% This is tutorial 2 for physics of waves, damped oscillations
+
+\documentclass{article}
+
+% Imports
+\usepackage{amsmath, amssymb}
+\title{"Tutorial 2 - Physics of waves"}
+\author{Arjun Ghosh}
+\date{\today}
+
+\begin{document}
+\section{Question 1}
+\subsection{Part a}
+We know that the energy varies as the amplitude squared all other things equal, so we have
+
+$$
+E \propto A^{2} \implies E \to \frac{E}{e^2} \implies A \to \frac{A}{e}
+$$
+
+Since the decay is exponential, the decary to $\frac{1}{e^2}$ will take twice as long as the decay to $\frac{1}{e}$, so we have
+
+$$
+t = 2 \tau = 2 \times 50 = 100 \text{ s}
+$$
+\subsection{Part b}
+Let the damping coefficient be $\beta$, then we have
+$$
+\beta t = 1 \implies \beta = 1/t = 1/100 = 10^{-2} \text{ s}^{-1}
+$$
+and we know $r$ is given by 
+$$
+r = 2m\beta = 2 \times 0.2 \times 10^{-2} = 4 \times 10^{-3} \text{ kg/s}
+$$
+
+\subsection{Part c}
+We know that the quality factor is given by $Q=\frac{\omega}{2\beta}=\frac{ \sqrt{ \omega_0^2 - \beta^2 } }{2\beta}$
+
+\end{document}

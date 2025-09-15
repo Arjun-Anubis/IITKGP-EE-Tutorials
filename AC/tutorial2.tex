@@ -1,0 +1,220 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{Problem Set 6}
+\author{Arjun Ghosh}
+\date{\today}
+
+\begin{document}
+\maketitle
+\section*{Problem 1}
+\subsection{Part (a)}
+Consider the function $f(x)= \log(1+x)$, applying Taylor's theorem to the first order gives
+$$
+\log(1+x) = 0 + x   -\frac{1}{(1+c)^{2}} \frac{x^{2}}{2} <x
+$$
+For $0<c<x$, now to the second order we have
+$$
+\log(1 +x) = 0 + x - \frac{x^{2}}{2} + \frac{1}{6} \frac{2}{(1+c)^{3}} x^{3} > x -\frac{x^{2}}{2}
+$$
+combining the two we have
+$$
+x - \frac{x^{2}}{2} < \log(1+x)<x
+$$
+\subsection{Part (b)}
+Consider the function $\cos x$ and its second order Taylor's theorem
+$$
+\cos x = 1-\frac{x^{2}}{2!} + (\cos x)'''|_{x=c}\frac{x^{3}}{3!}
+$$
+now $(\cos x)''' = -\cos(x)' = \sin(x)$, Now let us break our problem into two cases, $x \in[0,\pi]$ then we have $c \in(0,x)$ and so $\sin c \times x^{3}>0$ similarly if $x \in[-\pi,0]$ then we have $c \in(x,0)$ and similarly $\sin c \times x^{3}>0$ and thus 
+$$
+\cos x \geq 1-\frac{x^{2}}{2!}
+$$
+with equality at $x=0$
+
+\subsection{Part (c)}
+Consider the function $f(x) = \sqrt{ 1+x }$ and its Taylor's theorem to order 1 in the interval $(0,x)$ 
+$$
+\sqrt{ 1+x } = 1 + \frac{x}{2} + \frac{x^{2}}{2!} \left( \frac{1}{2}\times\left( -\frac{1}{2} \right)\times (1+c)^{-3/2} \right) > 1 + \frac{x}{2}
+$$
+and similarly to the second order
+$$
+\sqrt{ 1 + x } = 1 + \frac{x}{2} -\frac{x^{2}}{8} + \left( \frac{x^{3}}{3!} \right)\left[ \frac{1}{2}\times\left( -\frac{1}{2} \right)\times\left( -\frac{3}{2} \right)\times(1+c)^{-5/2} \right] < 1+\frac{x}{2}-\frac{x^{2}}{8}
+$$
+
+\section*{Problem 2}
+Since $f''$ is continuous around $c$ then $f'(x)$ must exist and be continuous around $c$ which gives
+$$
+f'(c-h) = \lim_{ h \to 0 } \frac{f(c)-f(c-h)}{h}
+$$
+and
+$$
+f'(c) = \lim_{ h \to 0 } \frac{f(c+h)-f(c)}{h}
+$$
+Subtract these two equations and divide by h
+$$
+\lim_{ h \to 0 } \frac{f'(c) -f'(c-h)}{h} = \lim_{ h \to 0 }\frac{ f(c + h)-2f(c) + f(c-h)}{h^{2}} = f''(c)
+$$
+
+\section*{Problem 3}
+Ff we apply Taylor's theorem to $f(x +h)$, $i$.$e$. in the interval $(x,x+h)$ we find $\theta_{2} \in (0,1)$ such that
+$$
+hf'(x + \theta h) = \left( f(x) + hf'(x) + \frac{h^{2}}{2}f''(x + \theta_{2}h) \right)-f(x)
+$$
+or
+$$
+\frac{f'(x + \theta h)-f'(x)}{h} =\frac{1}{2}f''(x +\theta_{2}h)
+$$
+Now if we take the limit as $h \to 0$
+$$
+\lim_{ h \to 0 } \frac{f'(x + \theta h)-f(x)}{h} = \theta f''(x) = \lim_{  h \to 0 } \frac{1}{2}f''(x + \theta_{2}h)
+$$
+which implies
+$$
+\lim_{ h \to 0 } \theta = \frac{1}{2}
+$$
+as a consequence of Taylor's theorem, this however requires the existence of the second derivative of $f(x)$ at $x$.
+\section*{Problem 4}
+\subsection{Part (a)}
+Let $u = \pi$ so we have
+$$
+u -\frac{u^{3}}{3!} + \frac{u^{5}}{5!} + \dots
+$$
+which is clearly $\sin u = \sin \pi = 0$
+
+\subsection{Part (b)}
+Let $u = \frac{2}{3}$
+$$
+u - \frac{u^{2}}{2} + \frac{u^{3}}{3} + \dots
+$$
+is clearly $\ln(1-u) = \ln\left( \frac{1}{3} \right) = -\ln 3$
+
+\subsection{Part (c)}
+Let $u=\frac{1}{\sqrt{ 3 }}$
+$$
+u -\frac{1}{3}u^{3} + \frac{u^{5}}{5} + \dots
+$$
+which is clearly $\arctan(u) = \frac{\pi}{6}$
+
+\section*{Problem 5}
+\subsection{Part (a)}
+We combine the two fractions and substitute $\sin x = x -\frac{x^{3}}{3!} + \dots$ which give
+$$
+\lim_{ x \to 0 } \frac{x-\frac{x^{3}}{3!} -x}{x \sin x} = 0
+$$
+\subsection{Part (b)}
+ expanding both $e^{ x }$ and $\log(1+x)$ we have
+$$
+\lim_{ x \to 0 } \frac{x\left( 1 + x + \frac{x^{2}}{2!} \right)-\left( x+\frac{x^{2}}{2} \right)}{x^{2}} = \frac{1}{2}
+$$
+\subsection{Part (c)}
+expanding the series for $\tan x = x + \frac{1}{3 }x^{3} + \dots$ 
+$$
+\lim_{ x \to 0 } \frac{x + \frac{1}{3}x^{3}-x}{x^{2}\tan x} = \frac{1}{3}
+$$
+\subsection{Part (d)}
+Here first we find the expansion for $\cosh x = \frac{e^{ x } + e^{ -x }}{2}$
+$$
+2\cosh x = 1 + x + \frac{x^{2}}{2} + \dots + 1-x + \frac{x^{2}}{2}
+$$
+or
+$$
+\cosh(x) = 1 + \frac{x^{2}}{2} + \frac{x^{4}}{4!} + \dots
+$$
+Substituting in the limit
+$$
+\lim_{  x \to 0 } \frac{\cosh x - \cos x}{x\sin x} = \lim_{ x \to 0 } \frac{1+\frac{x^{2}}{2} -1 + \frac{x^{2}}{2}}{x^{2}} = 1
+$$
+
+\section*{Problem 6}
+We have
+$$
+\lim_{ x \to x_{0} } \frac{f(x) -a_{0} -a_{1}(x-x_{0})}{x-x_{0}} = 0
+$$
+We know this limit exists and is equal to zero, further we know that $a_{1}$
+ is finite so we can can conclude that the limit
+ $$
+\lim_{ x \to x_{0} } \frac{f(x)-a_{0}}{x-x_{0}} = a_{1}
+$$
+exists and is equal to the finite value $a_{1}$ Now if we make the manipulation
+$$
+\lim_{ x \to x_{0} } \frac{f(x)-f(x_{0})}{x-x_{0}} + \lim_{ x \to x_{0} } \frac{f(x_{0})-a_{0}}{x-x_{0}} = a_{1}
+$$
+We can split this limit because we know that the function $f(x)$ is differentiable at $x_{0}$ and thus the left limit exists, therefore the right limit must also exist, also note that the numerator is independent of $x$, thus the only way for this limit to exist is if
+$$
+f(x_{0}) = a_{0}
+$$
+which leaves us with
+$$
+\lim_{ x \to x_{0} } \frac{f(x)-f(x_{0})}{x-x_{0}} = f'(x_{0}) = a_{1}
+$$
+\section*{Problem 7}
+Let $f(x) = \sin(m \arcsin x)$
+Clearly differentiating this function several times will be quite tedious, also note that the function is only defined in $x \in [-1,1]$, Also note that the function is odd, $i$.$e$ 
+$$
+\sin(m \arcsin -x) = \sin(-m \arcsin x) = -\sin (m \arcsin x)
+$$
+Thus the coefficients of all the even powers of $x$ in the Maclaurin series will be zero, let us try to form a relation between the derivatives of $f(x)$, let $\arcsin x  =\theta$
+$$
+f'(x) = \cos m\theta \times m\times \frac{d\theta}{dx}
+$$
+but $\sin \theta  = x$ so $\cos \theta \frac{ d\theta}{dx} = 1$
+$$
+\cos \theta f'(x) = m\cos m\theta
+$$
+Differentiating again
+$$
+\cos \theta f''(x) -\sin \theta f'(x) \frac{d\theta}{dx} = -m^{2}\sin m\theta  \times \frac{d\theta}{dx}
+$$
+Or
+$$
+(1-x^{2})f''(x)-xf'(x)+ m^{2}f(x) = 0
+$$
+Now differentiate this equation $n$ times
+$$
+D^{n}(1-x^{2})f''(x) = \sum_{k=0}^{n} \binom{n}{k} (1-x^{2})^{(k)} f^{(2 + n-k)}(x)
+$$
+Clearly this is zero for all $k>2$, for $k=0,1,2$
+$$
+= (1-x^{2})f^{(n+2)}(x) -2nxf^{(n+1)}(x) -2\binom{n}{2} f^{(n)}(x)
+$$
+Repeating for $xf(x)$
+$$
+D^{(n)}xf'(x)= \sum_{k=0}^{n} \binom{n}{k} (x)^{(k)} f^{(1 + n-k)}(x)
+$$
+which has only two non zero terms
+$$
+=xf^{(n+1)}(x) + nf^{(n)}(x)
+$$
+Collecting like terms we have
+$$
+(1-x^{2})f^{(n+2)}(x) - (2n+1)xf^{(n+1)}(x) + (m^{2}-n^{2})f^{(n)}(x) = 0
+$$
+now at $x=0$
+$$
+f^{(n+2)}(0) = (n^{2}-m^{2}) f^{(n)} (0)
+$$
+Now let $f^{(n)}(0) = a_{n}$, so we have
+$$
+a_{n+2} = ( n^{2} -m^{2} ) a_{n}
+$$
+$a_{1}= 1$, so
+$$
+\begin{align} \\
+a_{3}  & =(1-m^{2}) \\
+a_{5}  & = (1-m^{2})(9-m^{2}) \\
+a_{7}  & = (1-m^{2})(9-m^{2})(25-m^{2}) \\
+a_{2n+1} & = \prod_{k=1}^{n} ((2n+1)^{2} -m^{2})
+\end{align}
+$$
+Thus we have
+$$
+f(x) = \sum_{r=1}^{\infty} \frac{x^{2r+1}}{(2r+1)!} \prod_{k=1}^{r} ((2k-1)^{2} -m^{2})
+$$
+
+
+
+
+\end{document}

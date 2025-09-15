@@ -1,0 +1,315 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[a4paper, top=1in, bottom=1in, left=0.8in, right=0.8in]{geometry}
+
+\title{Tutorial 2: Taylor's Theorem}
+\author{Arjun Ghosh}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+	\item
+		Use Taylor's theorem to prove:
+		\begin{enumerate}
+			\item
+				Consider the function $f(x)= \log(1+x)$, applying Taylor's theorem to the first order gives
+				$$
+				\log(1+x) = 0 + x   -\frac{1}{(1+c)^{2}} \frac{x^{2}}{2} <x
+				$$
+				For $0<c<x$, now to the second order we have
+				$$
+				\log(1 +x) = 0 + x - \frac{x^{2}}{2} + \frac{1}{6} \frac{2}{(1+c)^{3}} x^{3} > x -\frac{x^{2}}{2}
+				$$
+				combining the two we have
+				$$
+				x - \frac{x^{2}}{2} < \log(1+x)<x
+				$$
+			\item
+				Consider the function $\cos x$ and its second order Taylor's theorem
+				$$
+				\cos x = 1-\frac{x^{2}}{2!} + (\cos x)'''|_{x=c}\frac{x^{3}}{3!}
+				$$
+				now $(\cos x)''' = -\cos(x)' = \sin(x)$, Now let us break our problem into two cases, $x \in[0,\pi]$ then we have $c \in(0,x)$ and so $\sin c \times x^{3}>0$ similarly if $x \in[-\pi,0]$ then we have $c \in(x,0)$ and similarly $\sin c \times x^{3}>0$ and thus 
+				$$
+				\cos x \geq 1-\frac{x^{2}}{2!}
+				$$
+				with equality at $x=0$
+
+			\item
+				Consider the function $f(x) = \sqrt{ 1+x }$ and its Taylor's theorem to order 1 in the interval $(0,x)$ 
+				$$
+				\sqrt{ 1+x } = 1 + \frac{x}{2} + \frac{x^{2}}{2!} \left( \frac{1}{2}\times\left( -\frac{1}{2} \right)\times (1+c)^{-3/2} \right) > 1 + \frac{x}{2}
+				$$
+				and similarly to the second order
+				$$
+				\sqrt{ 1 + x } = 1 + \frac{x}{2} -\frac{x^{2}}{8} + \left( \frac{x^{3}}{3!} \right)\left[ \frac{1}{2}\times\left( -\frac{1}{2} \right)\times\left( -\frac{3}{2} \right)\times(1+c)^{-5/2} \right] < 1+\frac{x}{2}-\frac{x^{2}}{8}
+				$$
+		\end{enumerate}
+
+	\item
+		Since $f''$ is continuous around $c$ then $f'(x)$ must exist and be continuous around $c$ which gives
+		$$
+		f'(c-h) = \lim_{ h \to 0 } \frac{f(c)-f(c-h)}{h}
+		$$
+		and
+		$$
+		f'(c) = \lim_{ h \to 0 } \frac{f(c+h)-f(c)}{h}
+		$$
+		Subtract these two equations and divide by h
+		$$
+		\lim_{ h \to 0 } \frac{f'(c) -f'(c-h)}{h} = \lim_{ h \to 0 }\frac{ f(c + h)-2f(c) + f(c-h)}{h^{2}} = f''(c)
+		$$
+
+	\item
+		Ff we apply Taylor's theorem to $f(x +h)$, $i$.$e$. in the interval $(x,x+h)$ we find $\theta_{2} \in (0,1)$ such that
+		$$
+		hf'(x + \theta h) = \left( f(x) + hf'(x) + \frac{h^{2}}{2}f''(x + \theta_{2}h) \right)-f(x)
+		$$
+		or
+		$$
+		\frac{f'(x + \theta h)-f'(x)}{h} =\frac{1}{2}f''(x +\theta_{2}h)
+		$$
+		Now if we take the limit as $h \to 0$
+		$$
+		\lim_{ h \to 0 } \frac{f'(x + \theta h)-f(x)}{h} = \theta f''(x) = \lim_{  h \to 0 } \frac{1}{2}f''(x + \theta_{2}h)
+		$$
+		which implies
+		$$
+		\lim_{ h \to 0 } \theta = \frac{1}{2}
+		$$
+		as a consequence of Taylor's theorem, this however requires the existence of the second derivative of $f(x)$ at $x$.
+	\item Evaulate the following series
+		\begin{enumerate}
+			\item
+				Let $u = \pi$ so we have
+				$$
+				u -\frac{u^{3}}{3!} + \frac{u^{5}}{5!} + \dots
+				$$
+				which is clearly $\sin u = \sin \pi = 0$
+
+			\item
+				Let $u = \frac{2}{3}$
+				$$
+				u - \frac{u^{2}}{2} + \frac{u^{3}}{3} + \dots
+				$$
+				is clearly $\ln(1-u) = \ln\left( \frac{1}{3} \right) = -\ln 3$
+
+			\item
+				Let $u=\frac{1}{\sqrt{ 3 }}$
+				$$
+				u -\frac{1}{3}u^{3} + \frac{u^{5}}{5} + \dots
+				$$
+				which is clearly $\arctan(u) = \frac{\pi}{6}$
+		\end{enumerate}
+	\item Evaluate the following limits
+		\begin{enumerate}
+			\item
+				We combine the two fractions and substitute $\sin x = x -\frac{x^{3}}{3!} + \dots$ which give
+				$$
+				\lim_{ x \to 0 } \frac{x-\frac{x^{3}}{3!} -x}{x \sin x} = 0
+				$$
+			\item
+				expanding both $e^{ x }$ and $\log(1+x)$ we have
+				$$
+				\lim_{ x \to 0 } \frac{x\left( 1 + x + \frac{x^{2}}{2!} \right)-\left( x+\frac{x^{2}}{2} \right)}{x^{2}} = \frac{1}{2}
+				$$
+			\item
+				expanding the series for $\tan x = x + \frac{1}{3 }x^{3} + \dots$ 
+				$$
+				\lim_{ x \to 0 } \frac{x + \frac{1}{3}x^{3}-x}{x^{2}\tan x} = \frac{1}{3}
+				$$
+			\item
+				Here first we find the expansion for $\cosh x = \frac{e^{ x } + e^{ -x }}{2}$
+				$$
+				2\cosh x = 1 + x + \frac{x^{2}}{2} + \dots + 1-x + \frac{x^{2}}{2}
+				$$
+				or
+				$$
+				\cosh(x) = 1 + \frac{x^{2}}{2} + \frac{x^{4}}{4!} + \dots
+				$$
+				Substituting in the limit
+				$$
+				\lim_{  x \to 0 } \frac{\cosh x - \cos x}{x\sin x} = \lim_{ x \to 0 } \frac{1+\frac{x^{2}}{2} -1 + \frac{x^{2}}{2}}{x^{2}} = 1
+				$$
+		\end{enumerate}
+
+		\item
+			We have
+			$$
+			\lim_{ x \to x_{0} } \frac{f(x) -a_{0} -a_{1}(x-x_{0})}{x-x_{0}} = 0
+			$$
+			We know this limit exists and is equal to zero, further we know that $a_{1}$
+			is finite so we can can conclude that the limit
+			$$
+			\lim_{ x \to x_{0} } \frac{f(x)-a_{0}}{x-x_{0}} = a_{1}
+			$$
+			exists and is equal to the finite value $a_{1}$ Now if we make the manipulation
+			$$
+			\lim_{ x \to x_{0} } \frac{f(x)-f(x_{0})}{x-x_{0}} + \lim_{ x \to x_{0} } \frac{f(x_{0})-a_{0}}{x-x_{0}} = a_{1}
+			$$
+			We can split this limit because we know that the function $f(x)$ is differentiable at $x_{0}$ and thus the left limit exists, therefore the right limit must also exist, also note that the numerator is independent of $x$, thus the only way for this limit to exist is if
+			$$
+			f(x_{0}) = a_{0}
+			$$
+			which leaves us with
+			$$
+			\lim_{ x \to x_{0} } \frac{f(x)-f(x_{0})}{x-x_{0}} = f'(x_{0}) = a_{1}
+			$$
+		\item
+			Let $f(x) = \sin(m \arcsin x)$
+			Clearly differentiating this function several times will be quite tedious, also note that the function is only defined in $x \in [-1,1]$, Also note that the function is odd, $i$.$e$ 
+			$$
+			\sin(m \arcsin -x) = \sin(-m \arcsin x) = -\sin (m \arcsin x)
+			$$
+			Thus the coefficients of all the even powers of $x$ in the Maclaurin series will be zero, let us try to form a relation between the derivatives of $f(x)$, let $\arcsin x  =\theta$
+			$$
+			f'(x) = \cos m\theta \times m\times \frac{d\theta}{dx}
+			$$
+			but $\sin \theta  = x$ so $\cos \theta \frac{ d\theta}{dx} = 1$
+			$$
+			\cos \theta f'(x) = m\cos m\theta
+			$$
+			Differentiating again
+			$$
+			\cos \theta f''(x) -\sin \theta f'(x) \frac{d\theta}{dx} = -m^{2}\sin m\theta  \times \frac{d\theta}{dx}
+			$$
+			Or
+			$$
+			(1-x^{2})f''(x)-xf'(x)+ m^{2}f(x) = 0
+			$$
+			Now differentiate this equation $n$ times
+			$$
+			D^{n}(1-x^{2})f''(x) = \sum_{k=0}^{n} \binom{n}{k} (1-x^{2})^{(k)} f^{(2 + n-k)}(x)
+			$$
+			Clearly this is zero for all $k>2$, for $k=0,1,2$
+			$$
+			= (1-x^{2})f^{(n+2)}(x) -2nxf^{(n+1)}(x) -2\binom{n}{2} f^{(n)}(x)
+			$$
+			Repeating for $xf(x)$
+			$$
+			D^{(n)}xf'(x)= \sum_{k=0}^{n} \binom{n}{k} (x)^{(k)} f^{(1 + n-k)}(x)
+			$$
+			which has only two non zero terms
+			$$
+			=xf^{(n+1)}(x) + nf^{(n)}(x)
+			$$
+			Collecting like terms we have
+			$$
+			(1-x^{2})f^{(n+2)}(x) - (2n+1)xf^{(n+1)}(x) + (m^{2}-n^{2})f^{(n)}(x) = 0
+			$$
+			now at $x=0$
+			$$
+			f^{(n+2)}(0) = (n^{2}-m^{2}) f^{(n)} (0)
+			$$
+			Now let $f^{(n)}(0) = a_{n}$, so we have
+			$$
+			a_{n+2} = ( n^{2} -m^{2} ) a_{n}
+			$$
+			$a_{1}= 1$, so
+			$$
+			\begin{aligned} \\
+				a_{3}  & =(1-m^{2}) \\
+				a_{5}  & = (1-m^{2})(9-m^{2}) \\
+				a_{7}  & = (1-m^{2})(9-m^{2})(25-m^{2}) \\
+				a_{2n+1} & = \prod_{k=1}^{n} ((2n+1)^{2} -m^{2})
+			\end{aligned}
+			$$
+			Thus we have
+			$$
+			f(x) = \sum_{r=1}^{\infty} \frac{x^{2r+1}}{(2r+1)!} \prod_{k=1}^{r} ((2k-1)^{2} -m^{2})
+			$$
+		\item
+			We want the smallest $n$ such that
+			$$
+			\frac{e^{c}}{(n+1)!}x^{n} \leq C
+			$$
+			$\forall x,c \in [-1,1]$, clearly this is maximum at $x=c=1$ giving us
+			$$
+			n!\leq\frac{e}{C}\leq(n+1)!
+			$$
+			here $C=0.005$ which gives us
+			$$
+			n! \leq 543 < (n+1)!
+			$$
+			which is satisfied by $n=5$
+		\item
+			\begin{enumerate}
+				\item
+					We know that the $n$th term of the Taylor Series expansion is given by
+					$$
+					T_{n} = \frac{x^{n}}{n!}(D^{n}f)(0)
+					$$
+					Now, let $f(x)= (1+x)^{h}$ so we have
+					$$
+					D^{n}f(x) = \underbrace{ h(h-1)(h-2)\dots(h-n+1) }_{ n \text{ terms} } (1+x)^{h-n} = h^{\underline{n}}(1+x)^{h-n}
+					$$
+					At $x=0$ we have
+					$$
+					T_{n} = \frac{h^{\underline{n}}}{n!}x^{n}
+					$$
+				\item
+					Clearly for $m \in \mathbb{N}$ we have $m^{\underline{n} } = n! \binom{m}{n}$ so we have
+					$$
+					(1+x)^{m} = \binom{m}{0} + \binom{m}{1}x + \dots \binom{m}{k}x^{k} + \dots \binom{m}{n} x^{n}
+					$$
+					Noting that for terms with powers greater than $m$ the value of $m^{\underline{n}}$ is zero because they are integers
+
+			\end{enumerate}
+
+		\item
+			\begin{enumerate}
+				\item
+					We have $1.5 = 1 + \frac{1}{2} = 1 + x$, thus by Taylor's theorem we have
+					$$
+					(1 + x)^{1/2} = 1 + \frac{1}{2}x + \binom{\frac{1}{2}}{2}x^{2} + \binom{\frac{1}{2}}{3} (1+c)^{-2.5}x^{3}
+					$$
+					evaluating the binomial coefficients we have $\binom{\frac{1}{2}}{2} = -\frac{1}{8}$ and $\binom{\frac{1}{2}}{3} = \frac{1}{16}$, where $c \in (0, \frac{1}{2} )$. The estimate itself is
+					$$
+					\sqrt{ 1.5 } = 1 + \frac{1}{4} - \frac{1}{32} = \frac{32 + 8-1}{32} = 1 \frac{7}{32} \approx 1.21875
+					$$
+				\item
+					Clearly the error is maximum when $c=0$ and minimum when $c=\frac{1}{2}$ so we have, let the error be
+					$$
+					E = (1 + x)^{1/2} - 1 -\frac{1}{2}x + \frac{1}{8}x^{2} = \frac{1}{16}(1 + c)^{-5/2}x^{3}
+					$$
+					Using Lagrange's form we have the error bounded as
+					$$
+					0.00283 \approx \frac{1}{16} \frac{x^{3}}{(1 + x)^{2.5}} < E < \frac{1}{16}x^{3} \approx 0.0078125
+					$$
+					The actual error is $\sqrt{ 1.5 } - \frac{39}{32} \approx 0.005994$ which falls cleanly within our bounds
+			\end{enumerate}
+
+		\item
+			Estimation of an integral
+			\begin{enumerate}
+				\item
+					For convenience let us define $T_{0} = 2\pi \sqrt{ \frac{l}{g} }$ which is what we expect the answer be close to, further define $\Theta = \frac{\pi}{2}$ which is the maximum angle, thus we have
+					$$
+					T = \frac{T_{0}}{\Theta} \int_{0}^{\pi/2} \frac{1}{\sqrt{ 1-k^{2}\sin ^{2}\theta }} \, d\theta 
+					$$
+					Now expand the binomial series to 1 term
+					$$
+					T = \frac{T_{0}}{\Theta}\int_{0}^{\Theta}  \, d\theta = T_{0} = 2\pi \sqrt{ \frac{l}{g} }
+					$$
+					as expected
+				\item
+					Now if we use the binomial series to approximate $(1-k^{2}\sin ^{2}\theta)^{-1/2}$ we get
+					$$
+					T = \frac{T_{0}}{\Theta}\int_{0}^{\Theta} 1 + \frac{1}{2}k^{2}\sin ^{2}\theta \, d \theta  
+					$$
+					we know that $\int_{0}^{\pi/2} \sin ^{2}\theta \, d\theta = \frac{\pi}{4}$ since the average value of $\sin ^{2}x$ is $\frac{1}{2}$ so we have
+					$$
+					T \approx T_{0}\left( 1 + \frac{k^{2}}{4} \right)
+					$$
+					where $k = \sin \frac{\theta_{0}}{2}$, if $\theta \ll 1$ then 
+					$$
+					T \approx T_{0}\left( 1 + \frac{\theta_{0}^{2}}{16} \right)
+					$$
+					which matches empirical observations
+			\end{enumerate}	
+	\end{enumerate}
+\end{document}
