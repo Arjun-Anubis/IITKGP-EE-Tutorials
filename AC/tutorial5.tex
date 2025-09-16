@@ -9,33 +9,34 @@
 \date{\today}
 
 \begin{document}
+
 \maketitle
 
 \begin{enumerate}
-\item Find $\frac{df}{dt}$ at $t=0$ for the following
+\item Find $f_{t}$ at $t=0$ for the following
 \begin{enumerate}
 \item $f(x,y) = x\cos y +  e^{ x }\sin y$ where $x(t) = t^{2} + 1$ and $y(t) = t^{3} + t$ \\
 The derivative can be found using chain rule
 $$
-\frac{df}{dt} = f_{x}\,x_{t} + f_{y}\,y_{t} = (2t)(\cos y + e^{ x }\sin y) + (3t^{2} + 1)(-x\sin y + e^{ x }\cos y)
+f_{t} = f_{x}\,x_{t} + f_{y}\,y_{t} = (2t)(\cos y + e^{ x }\sin y) + (3t^{2} + 1)(-x\sin y + e^{ x }\cos y)
 $$
 where $x(t)$ and $y(t)$ are given as above
 \item $f(x,y,z) = x^{3} + xz^{2} + y^{3} + xyz$ where $x(t) = e^{ t }, y(t) = \cos t$ and $z(t) = t^{3}$ \\
 Again, by chain rule
 $$
-\frac{d}{dt}f(x,y,z) = f_{x}\, x_{t} + f_{y}\,y_{t} + f_{z}\,z_{t} = (e^{ t })(3x^{2} + z^{2} + yz) + (-\sin t)(3y^{2} + xz) + (3t^{2})(2xz + xy)
+f_{t} = f_{x}\, x_{t} + f_{y}\,y_{t} + f_{z}\,z_{t} = (e^{ t })(3x^{2} + z^{2} + yz) + (-\sin t)(3y^{2} + xz) + (3t^{2})(2xz + xy)
 $$
 where the intermediate variables can be expanded as before
 \item $f(x_{1}, x_{2}, x_{3}) = 2x_{1}^{2} - x_{2}x_{3} + x_{1}x_{3}^{2}$ where $x_{1}(t) = 2\sin t, x_{2}(t)=t^{2} -t + 1$ and $x_{3}(t) = 3^{-t}$ \\
 Again by chain rule we have
 $$
-\frac{df}{dt} = (2\cos t)(4x_{1} + x_{3}^{2}) + (2t-1)(-x_{3}) + (-\ln 3 \times 3 ^{-t})(-x_{2} + 2x_{1}x_{3})
+f_{t} = (2\cos t)(4x_{1} + x_{3}^{2}) + (2t-1)(-x_{3}) + (-\ln 3 \times 3 ^{-t})(-x_{2} + 2x_{1}x_{3})
 $$
 as before
 \end{enumerate}
 \item 
 \begin{enumerate}
-\item Find $\frac{dy}{dx}$ for the following
+\item Find $y_{x}$ for the following
 \begin{enumerate}
 \item $x^{y} + y^{x} = c$ \\
 Differentiating we have
@@ -73,13 +74,6 @@ $$
 (2x + y)dx + (2y-x)dy = 0 \implies \frac{dy}{dx} = \frac{y + 2x}{x-2y}
 $$
 \end{enumerate}
-\item Find $\frac{ \partial z }{ \partial x }$ and $\frac{ \partial z }{ \partial y }$ for the following
-\begin{enumerate}
-\item 
-\item
-\item
-\item
-\end{enumerate}
 \end{enumerate}
 \item We have Euler's Theorem in three variables
 \\ $u = f(r,s,t)$ which implies
@@ -94,7 +88,7 @@ But the terms in the parenthesis vanish because of Euler's theorem and hence
 $$
 xu_{x} + yu_{y} + zu_{y} = 0
 $$
-\item Euler's Theorem in 2 variables
+\item Euler's Theorem in 2 variables \\
 Consider $v$ given by
 $$
 v = f(u), u = H_{n}(x,y)
@@ -112,13 +106,13 @@ $$
 by Euler's Theorem
 \item Determine whether the function is homogenous and determine its degree
 \begin{enumerate}
-\item Not homogenous
-\item Not homogenous
+\item Homogenous, degree 0
+\item Homogenous degree 0
 \item Homogenous, degree 1
-\item Not homogenous
-\item Not homogenous
+\item Homogenous, degree 0
+\item Homogenous, degree 2
 \item Homogenous, degree $\frac{1}{20}$
-\item Homogenous, degree 4
+\item Not homogenous
 \item Homogenous, degree -1
 \end{enumerate}
 \item 
@@ -142,8 +136,8 @@ y_{tt} = (y_{u}u_{t} + y_{v}v_{t})_{t} = c(f'(u) - \phi'(v))_{t} = c^{2}(f''(u)+
 }
 $$
 using $u_{t} = -v_{t} = c$
-\item Heat Diffusion Equation
-If $u = e^{ -mx }sin(nt-mx)$ then prove that $2m^{2}u_{t} = n u_{xx}$
+\item Advection Equation \\
+If $u = e^{ -mx }sin(nt-mx)$ then prove that $2m^{2}u_{t} = n u_{xx}$ \\
 Note that for a given $t$, that is to say, at a point in time, $u$ undergoes damped oscillations with decay constant $m$ and frequency $m$, thus $m$ is to be viewed as a wavenumber or spatial frequency, thus as far as space is concerned, as such, let $\phi = nt-mx$ then we have
 $$
 e^{ nt }u = e^{ \phi }\sin \phi
@@ -152,7 +146,7 @@ We have
 $$
 v_{\phi \phi} -2v_{\phi} + 
 $$
-
+???
 \item
 Say we have
 $$
@@ -203,7 +197,7 @@ $$
 \item
 Recall from Q4 that
 $$
-xu_{x} + yu_{y} = nz \frac{du}{dz}
+\mathbf{L}[u] = xu_{x} + yu_{y} = nzu_{z}
 $$
 where $n=2$ and $u(z) = \arctan(z)$ and $z=\frac{x^{3} + y^{3}}{x-y}$, so we have
 $$
@@ -244,43 +238,117 @@ $$
 x^{2}u_{xx} + 2xy\, u_{xy} + y^{2} u_{yy} = n(n-1)\left[ zu_{z} \right] + n^{2}z^{2} \left[ u_{zz} \right]
 $$
 Apply this to the function $u = \arcsin z$ and $z = \sqrt{ \dots }$, $n = -\frac{1}{12}$, we have
-
-\item
-Now if we define $u = vw$ where $v=x$ and $w =\ln(z)$ and $z = \frac{y}{x}$ and $n=0$, then by the result of the previous question we have
+???
+\item From the previous part, if $u =  z$, we have $u_{z}=1$ and $u_{zz}=0$ and so
 $$
-x^{2}v_{x x} + 2xy \, v_{xy} + y^{2} v_{yy} = 0
+x^{2}u_{x x} + + 2xy \, u_{xy} + y^{2} u_{yy} = n(n-1)u = 0
 $$
-and we know
+since $n=1$
+\item ???
+\item Let $z = z_{1} + z_{2}$
+then
 $$
-u_{xx} = (u_{x})_{x} = (v + xv_{x})_{x} = 2v_{x} + x v_{xx}
+xz_{x} + yz_{y} = mz_{1} + nz_{2}
 $$
 and
 $$
-u_{xy} = (v + xv_{x})_{y} = v_{y} + xv_{xy}
+x^{2} z_{xx} + 2xy \, z_{xy} + y^{2} z_{yy} = m(m-1)z_{1} + n(n-1)z_{2}
+$$
+adding the two we have
+$$
+x^{2} z_{xx} + 2xy \, z_{xy} + y^{2} z_{yy} = m^{2}z_{1} + n^{2}z_{2} - (xz_{z}+yz_{y})
+$$
+add $mnz = mnz_{1} = mnz_{2}$ to both sides we have
+$$
+x^{2} z_{xx} + 2xy \, z_{xy} + y^{2} z_{yy}  + mnz= (m + n-1) (xz_{z}+yz_{y})
+$$
+\item Using the linearity of the Eulerian operator
+$$
+\mathbf{L}[h] = L[f] + L[g] = mf + ng = 0 \implies f = -\frac{n}{m}g = \alpha g
+$$
+\item ???
+\item \textbf{Polar Coordinates} \\
+The transformation
+$$
+x = r\cos \theta; y = r \sin \theta
+$$
+can be inverted to
+$$
+r^{2} = x^{2} + y^{2}; \theta = \arctan\left( \frac{y}{x} \right)
+$$
+which can be used to find 
+$$
+r_{x} = \cos \theta; r_{y} = \sin \theta
+$$
+and
+$$
+\theta_{x} = \frac{\sin \theta}{r}; \theta_{y} = - \frac{\cos \theta}{r}
+$$
+\begin{enumerate}
+\item $(z_{x})^{2} + (z_{y})^{2} = z_{r}^{2} + \frac{1}{r^{2}}z_{\theta}^{2}$ \\
+Evaluate
+$$
+z_{x} = z_{r} r_{x} + z_{\theta} \theta_{x} = z_{r} \cos \theta + \frac{z_{\theta}\sin \theta}{r}
+$$
+and
+$$
+z_{y} = z_{r}r_{y} + + z_{\theta}\theta_{y} = z_{r}\sin \theta - \frac{z_{\theta}\cos \theta}{r}
+$$
+Square and add to get
+$$
+z_{x}^{2} + z_{y}^{2} = z_{r}^{2} + \frac{1}{r^{2}}z_{\theta}^{2}
+$$
+\item This question is much longer \\
+$$
+\Delta z = z_{xx} + z_{yy} = z_{rr} = \frac{1}{r}z_{r} + \frac{1}{r^{2}}z_{\theta \theta}
+$$
+that is to say, the Laplacian has no mixed derivatives and no single $\theta$ derivatives.
+
+On the LHS we have
+$$
+z_{xx} = (z_{x})_{x} = \left( z_{r}\cos \theta + \frac{z_{\theta}\sin \theta}{r} \right)_{x} = (A+B)_{x}
 $$
 and 
 $$
-u_{yy} = (xv_{x})_{x} = xv_{y y }
+z_{yy} = (z_{y})_{y} = \left( z_{r}\sin \theta - \frac{z_{\theta}\cos \theta}{r} \right)_{y} = (C+D)_{y}
 $$
-Substituting
+Evaluate any one, 
 $$
-\boxed{
-x^{2}u_{xx} + 2xy \, u_{xy} + y^{2} u_{yy} = 0
-}
+A_{x} = \frac{z_{r}(-\sin \theta)(\sin \theta)}{r} + \cos \theta \left[ z_{rr}\cos \theta + \frac{z_{r\theta}\sin \theta}{r} \right] = z_{rr}\cos ^{2}\theta  -\frac{z_{r}\sin ^{2}\theta}{r} + z_{r \theta} \frac{\sin \theta \cos \theta}{r}
 $$
-
-\item
-\item
-\item
-\item
-\item
-\begin{enumerate}
-\item
-\item
+Clearly what's going to happen is that the squared terms will add and the cross terms will cancel
+$$
+B_{x} = \frac{\sin \theta}{r}\left[ z_{\theta r}\cos \theta + \frac{z_{\theta \theta} \sin \theta}{r} \right] + z_{\theta }Q
+$$
+Clearly the $Q$ term will contribute zero to the final answer
+$$
+z_{xx} + z_{yy} = z_{rr}(\sin ^{2} \theta + \cos ^{2} \theta) + \frac{1}{r}z_{r}(\sin ^{2} \theta + \cos ^{2} \theta) + \frac{1}{r^{2}}z_{\theta \theta} (\sin ^{2} \theta + \cos ^{2} \theta)
+$$
+while all the other terms cancel out
 \end{enumerate}
-\item
-\item
-\item Invariance of Laplacian
+\item We need to find the value of $k$ such that
+$$
+\nabla^{2}r^{2k} = 0; \, \forall v \in \mathbb{R}^{n}
+$$
+where $r = \sqrt{ \sum x_{i}^{2} }$ is the $L_{2}$ norm of the vector $v$, consider the expression
+$$
+r^{2} = \sum x_{i}^{2} \implies r_{x_{i}} = \frac{x_{i}}{r}
+$$
+which implies that
+$$
+(r_{2k})_{x_{i}x_{i}} = \left( 2k(r^{2k-1})\frac{x_{i}}{r} \right)_{x_{i}} = 2k(r^{2k-2}x_{i})_{x_{i}} = 2k\times A
+$$
+where $A$ is given by
+$$
+A = r^{2k-2} + x_{i}(2k-2)r^{2k-3}\frac{x_{i}}{r} = r^{2k-4}[r^{2} + (2k-2)x_{i}^{2}]
+$$
+Thus 
+$$
+\nabla^{2} r^{2k} = 2kr^{2k-4} \times \sum r^{2} + (2k-2)x_{i}^{2} = 2kr^{2k-2}[n+2-2k]
+$$
+Thus $k = 0$ or $k = 1 + \frac{n}{2}$
+\item ???
+\item \textbf{Invariance of Laplacian}
 If we have $x = \xi \cos \alpha - \eta \sin \alpha$ and $y = \xi \sin \alpha + \eta \cos \alpha$, which is a rotated set of coordinates, and gives $x_{\xi} = y_{\eta} = \cos \alpha$ and $-x_{\eta }= y_{\xi}=\sin \alpha$
 $$
 \begin{aligned}
@@ -299,4 +367,5 @@ u_{\eta \eta} + u_{\xi \xi} = u_{x x} + u_{y y}
 $$
 
 \end{enumerate}
-\end{enumerate}\end{document}
+
+\end{document}
