@@ -1,1 +1,0 @@
-You may submit the bonus challenge as PPT, PDF, Source Code or any other commonly accessible file format.
