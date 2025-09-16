@@ -1,0 +1,179 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[a4paper, top=1in, bottom=1in, left=0.8in, right=0.8in]{geometry}
+
+\title{Tutorial 1: 2D and 3D Equilibrium}
+\author{Arjun Ghosh}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+\item \textbf{Vector Form of a force} \\
+Clearly the force points along the vector $\vec{MP}$, now
+$$
+\vec{MP} = \vec{r} = \vec{P} -\vec{M} = \begin{bmatrix}
+R \cos \theta \sin \phi \\
+R \sin \theta \sin \phi \\
+R \cos \phi
+\end{bmatrix} 
+-
+\begin{bmatrix}
+\frac{R}{2}\cos \theta \\
+\frac{R}{2} \sin \theta \\
+0
+\end{bmatrix} = 
+\frac{R}{2}
+\begin{bmatrix}
+\cos \theta \left( 2\sin \phi -1 \right) \\
+\sin \theta \left( 2 \sin \phi -1 \right) \\ 
+R \cos \phi
+\end{bmatrix}
+$$
+Thus, 
+$$
+\vec{F} = F \hat{r} = \frac{F}{r}\vec{r}
+$$
+where 
+$$
+r = \frac{R}{2} \sqrt{ (2\sin \phi -1)^{2} + \cos ^{2} \phi } 
+$$
+\item \textbf{Force Triangle} \\
+Consider the force triangle so formed
+$$
+F_{a} = \frac{F}{\sin 60}; F_{b} = \frac{F}{\tan 60}
+$$
+where $F = 600 \text{ N}$ , which gives
+$$
+F_{a} = 692.8 \text{ N}; F_{b} = 346.4 \text{ N}
+$$
+\item \textbf{2D Torque} \\
+In 2D, a cross product
+$$
+\vec{A} \times \vec{B} = \mathrm{Im} [A^{*}B] \hat{k}
+$$
+where $A$ and $B$ are the complex representations of the vectors $\vec{A}$ and $\vec{B}$
+The torque is given by
+$$
+\vec{\tau} = \vec{r} \times \vec{F}  = (-100, -200)\text{mm} \times 300 \angle 25\text{ N} = -30 (1 + 2i)\times(\bar{\angle 25}) = 41.699 \text{ Nm}
+$$
+The torque is maximum when $\sin \theta = 1$,  and do
+$$
+F_{\text{min}} = \frac{\tau}{r_{DB}} =\mathrm{Im}\left(  \frac{30(1 -2i)\angle25}{|200 + 200i|} \right) = 147.43 \text{ N}
+$$
+\item \textbf{3D Torque} \\
+We want to calculate the torque
+$$
+\vec{\tau} = \vec{r} \times \vec{F} = 24\cdot(0,18,30)\times \text{uvec}(-6, -5, -30) = (-301.93, -139.35, 83.61)
+$$
+where $\text{uvec}$ is the unit vector function
+\item \textbf{Splitting the problem} \\
+Divide the rod into three parts, along $z$ axis, along $y$ axis and along $x$ axis, their weights are
+$$
+w_{x} = 137.34 \text{ N}, w_{y } = 75.537 \text{ N}
+$$
+and their moment arms are
+$$
+y_{y} = 0.55 m; y_{x} = 1.1 m; x_{x} = 0.2 m
+$$
+The moment about the $x$ axis
+$$
+M_{Ox} = -w_{x}y_{x} -w_{y}y_{y} = -(137.34 \times 1.1 + 75.537 \times 0.55) = 192.61935 \text{ Nm}
+$$
+while about the 
+$$
+M_{Oy} = - w_{x}x_{x} = -137.34 \times 0.2 = -27.428
+$$
+And hence
+$$
+M_{O} = 194.55938289 \text{ Nm}
+$$
+\item \textbf{Moment along an axis} \\
+Project everything down the $z$ axis to obtain a 2D figure, now
+$$
+\tau_{z} = \vec{r_{xy}} \times \vec{F_{xy}} = \mathrm{Im}(2\times(1.2 )\overline{\text{uvec(-1.2+0.5i)}}) = 0.923 \text{ kNm}
+$$
+
+\item \textbf{Moments in a plane} \\
+The torque about each axis is just the vector torque about $O$, for which $\vec{r} = (0,0,2.25)$ hence there can not be any force along the $z$ axis, otherwise the torque is
+$$
+\vec{\tau} = \vec{r} \times \vec{F} = F( \vec{r} \times \hat{F}) = (1349 \text{ N}) (0,0,2.25)\times \text{uvec}(0.9, 1.5, -2.25) = (-1597.5, 958.5, 0) \text{ Nm}
+$$
+
+\item \textbf{Decomposing Moments} \\
+The angle $\phi$ is between $P$ and the $z$ axis, so we can find the cartesian vector for $\vec{P}$
+$$
+\vec{P} = P(0,-\sin \phi, \cos \phi)
+$$
+Using the two force components $M_{y}$ and $M_{z}$ 
+$$
+\begin{aligned}
+M_{y} &= xF_{z} - zF_{x} &= Px \cos \phi \\
+M_{z} &= r_{z}F_{y}-yF_{x} &= P x\sin \phi
+\end{aligned}
+$$
+We obtain $\phi$ by dividing the two
+$$
+ \tan \phi = \frac{M_{z}}{M_{y}} = 3.43 \implies \phi = 73.74^{\circ}
+$$
+and $P$ by squaring and adding them
+$$
+M_{y}^{2} + M_{z}^{2} = P^{2}x^{2} \implies P = \frac{1}{x}\sqrt{ M_{y}^{2} + M_{z}^{2} } \implies P = 125 \text{ N}
+$$
+Now expand the magnitude of the moment about $x$ to get $\theta + \phi$
+$$
+M_{x} = P \times(200 \text{ mm})  \times \sin (\theta + \phi)
+$$
+and thus obtain $\theta$
+$$
+\theta = \arcsin \left(\frac{x}{l} \frac{M_{x}}{ \sqrt{ M_{z}^{2}  + M_{y}^{2}} }\right) - \arctan \left( \frac{M_{z}}{M_{y}} \right) = 53.13^{\circ}
+$$
+
+
+\item \textbf{Re-Scaled Force Triangle} \\
+Consider the force triangle, and the two shown triangles, a triangle similar to the fore triangle can be constructed by scaling down $AC$ by $\frac{BO}{CO}$
+$$
+\frac{T_{AB}}{T_{AC}} = \frac{AB}{AC}\times \frac{CO}{BO} \implies T_{AB} = (8 \text{ kN}) \frac{|(40,50)|}{|(40, 60)|} \times \frac{40}{50}= 5.682 \text{ kN}
+$$
+Further
+$$
+R = T_{AC} \left( \frac{y_{C}}{x_{C}} + \frac{y_{B}}{x_{B}} \right) \frac{x_{C}}{AC} = 10.206 \text{ kN}
+$$
+
+\item \textbf{Equivalent Force} \\
+Then the torque about $O$ must be zero, hence
+$$
+M = 400 \times 150 \cos 30 + 320 \times 300 = 147 \text{ N mm}
+$$
+and it must be anti clock wise
+\item \textbf{Equivalent Moment Arm in 2D} \\
+Since this is in 2D, we can use complex numbers
+$$
+F_{\text{equiv}} = T + T \angle 15^{\circ} = T(1 + \angle 15^{\circ})
+$$
+While
+$$
+\tau = \mathrm{Im}(T \overline{(-10 + 3i)} + T\angle 15^{\circ} \overline{(-10 -3i)}) = T\,\mathrm{Im}([-10(2 + \angle 15^{\circ}) + 3i(\angle 15-1)])
+$$
+If $F$ passes through some point on the $x$ axis then its torque is
+$$
+\tau = xF_{y} \implies x = 10.3949 \text{ m} 
+$$
+
+
+\item \textbf{Equivalent Moment Arm in 3D} \\
+Clearly 
+$$
+F_{\text{equiv}} = 3\times 90  =270 \text{ kN}
+$$
+also, since all four forces produced no torque, the torque they produce now, must the negative of what engine 3 produced
+$$
+\vec{\tau} = -\vec{\tau_{3}} = -\vec{r_{3}}\times \vec{F_{3}} = \vec{r}\times(3\vec{F_{3}}) \implies \vec{r} = -\frac{1}{3}\vec{r_{3}}
+$$
+thus $y = -4\text{m}$ and $z = 1\text{m}$
+\end{enumerate}
+\end{document}
