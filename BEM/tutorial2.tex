@@ -1,0 +1,147 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[a4paper, top=1in, bottom=1in, left=0.8in, right=0.8in]{geometry}
+
+\title{Tutorial 2: 2D and 3D Equilibrium}
+\author{Arjun Ghosh}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\begin{enumerate}
+\item \textbf{Constraints} \\
+Note that the darkened joints are pin joints while the light joints are rollers
+\begin{enumerate}
+\item Properly constrained, the roller stops the torque
+\item Improperly constrained: The torque can't be countered, but not statistically indeterminate, since motion is not possible anyways
+\item Properly Constrained
+\item Improperly constrained, can't produce any torque, also statistically indeterminate
+\item Same as above
+\item Properly constrained
+\end{enumerate}
+\item \textbf{2 Force Triangles} \\
+Consider the two force triangles formed by the small balls, stacking them, we eliminate the tension and get the force triangle for the big ball (with the arrows reversed) and hence
+$$
+\begin{aligned}
+R &= \frac{Mg}{2} \times \frac{30}{15\sqrt{ 3 }} = \frac{Mg}{\sqrt{ 3 }} & =22.655 \text{ N}\\
+T &= \frac{Mg}{2}\times \frac{15}{15\sqrt{ 3 } } = \frac{Mg}{2\sqrt{ 3 }} &=11.327 \text{ N}\\
+N &= mg + \frac{Mg}{2} &= 29.430 \text{ N}
+\end{aligned}
+$$
+\item \textbf{More than a force triangle} \\
+Lets say that the forces at $A$ and $B$ are $F_{A}$ and $F_{B}$ respectively, then drawing the force triangle we have
+$$
+\begin{aligned}
+F_{H}  & = F_{A}-F_{B} = \frac{G}{\sqrt{ 3 }} \\
+T  & =\frac{2G}{\sqrt{ 3 }}
+\end{aligned}
+$$
+Now applying the torque equation at the centre of the rod we have
+$$
+\sqrt{ 2 }(F_{A} + F_{B}) = T \sin 75^{\circ}
+$$
+Solving the two we have
+$$
+F_{A} = \frac{1 + \sqrt{ 3 }}{4}G; F_{B} = \frac{3-\sqrt{ 3 }}{12}G
+$$
+Alternatively, we can find the point of intersection and equate the moments about that
+\item \textbf{Primitive mechanical Advantage} \\
+Let $\mu = 0.35$, now the force triangle for $A$ gives
+$$
+\frac{F\cos 20^{\circ}}{\mu} + F \sin 20^{\circ} = mg \implies F = \frac{\mu mg}{\cos 20^{\circ} + \mu \sin 20 ^{\circ}} = 648.197 \text{ N}
+$$
+while for $B$ it gives
+$$
+F = \tan 10^{\circ} \mu m g = 121.083 \text{ N}
+$$
+Clearly less force is required for $B$, this proves the mechanical advantage you can get by using a machine
+\item \textbf{Feeling the centre of mass} \\
+Let us first observe that a clockwise torque at $B$ results in an anticlockwise torque for the jig and vice versa.
+
+Let the centre of mass make an angle of $\theta$ with the diameter and be a distance $r$ from the centre, now, since the sign of the torque changed between the two runs, it holds by IVT that there exists a 
+$$
+\alpha_{0} \in [0,\alpha]: \tau(\alpha) = 0
+$$
+Measuring about this equilibrium, 
+$$
+\begin{aligned}
+Wr \sin (\alpha_{0} -0) = \tau_{0} = 2460 \text{ Nm} \\
+Wr \sin (30 -\alpha_{0}) = \tau_{30} = 4680 \text{ Nm}
+\end{aligned}
+$$
+divide the two equations to find $\alpha_{0}$, and clearly $\alpha_{0} + \theta$ will be the angle between the centre of mass and the horizontal at vertical which is $90^{\circ}$
+$$
+\sin 30 \cot \alpha - \cos 30 = \frac{\tau_{30}}{\tau_{0}} \implies \alpha = \arctan \frac{\sin 30}{\cos 30 + \frac{\tau_{30}}{.\tau_{0}}} = 10.24^{\circ}
+$$
+which passes the boundary check where $\alpha_{0}$ and $\alpha_{0} = 30^{\circ}$, and so $\theta = 79.76^{\circ}$, using the $\alpha_{0}$ obtained in this way, we can resubstitute to find
+$$
+r = \frac{\tau_{0}}{W \sin \alpha} = ??
+$$
+\item \textbf{3 superposed force triangles} \\
+Consider the three superposed force triangles, it is similar to the geometry of the actual figure, using that similarity we have
+$$
+Mg\left(  \frac{H}{H-h}-1 \right) = Mg\left( \frac{h}{H-h} \right) = \frac{mg}{2}
+$$
+which implies
+$$
+m  = \frac{2M}{\sqrt{ \frac{15\times4}{5} }} = \frac{2M}{2\sqrt{ 3 }-1} = 0.811 M
+$$
+\item \textbf{Three Force Problem \& Some geometry} \\
+Requiring the concurrency of the three forces we get the following figure, using the relation indicated we obtain
+$$
+2\cos 2\theta = \cos \theta
+$$
+Using newton's method we find $\theta = 32.53^{\circ}$
+\item \textbf{Another Three force Problem} \\
+\item \textbf{Torque Balance} \\
+We know that the torque provided by the spring must balance the torque provided by the normal so we have
+$$
+F_{s} \times\text{uvec}(300,-230)\times(0,450) = (120 \text{ N})\times \text{uvec}(-20^{\circ}) \times(-330,-180)
+$$
+
+which gives
+$$
+F_{s} = 94.76 \text{ N}
+$$
+Using Hooke's law we know
+$$
+F_{s} = k(|(300,230)|-250) \implies k = 3.381 \text{ kN/m}
+$$
+also $R_{b}$ is given by
+$$
+R_{b} + F_{s} \text{uvec}(-300,-230) + (120 \text{ N}) \text{uvec} (-20^{\circ}) = 0
+$$
+\item \textbf{3D Force Polygon} \\
+Consider the force polygon, which is the same as the shape of the frame itself, using similarity we have
+$$
+S_{1} = -G \frac{a}{c}; S_{2} = -G \frac{b}{c};S_{3} = G \frac{\sqrt{ a^{2} + b^{2} + c^{2} }}{c}
+$$
+\item \textbf{Pitch and Roll} \\
+Consider the pitch equilibrium about $BC$ 
+$$
+2 \text{m} \times 2kN = 4\text{m} \times \Delta N_{A} \implies N_{A} = 1000 \text{ N}
+$$
+And the roll equilibrium about $B$
+$$
+\Delta N_{A} = -2 \Delta N_{C} \implies \Delta N_{C} = -500 \text{ N}
+$$
+and similarly about $C$ to get
+$$
+\Delta N_{B} = -500 \text{ N}
+$$
+\item \textbf{Reverse Projection} \\
+Consider the equilibrium about the $z$ axis, we have
+????
+\item \textbf{A Car jack} \\
+\item \textbf{Direction Cosines \& A Robotic Arm} \\
+\item \textbf{Hanging by a thread} \\
+\item \textbf{A 3 legged Table} \\
+\item \textbf{A Trapdoor} \\
+
+
+\end{enumerate}
+\end{document}
