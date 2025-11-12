@@ -1,0 +1,30 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{circuitikz}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[a4paper, top=1in, bottom=1in, left=0.8in, right=0.8in]{geometry}
+
+
+\usetikzlibrary{positioning}
+
+\title{Tutorial 1: DC Circuit Analysis}
+\author{Arjun Ghosh}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+	\item \textbf{Nodal Analysis} \\
+		\begin{circuitikz}
+			\node (G) [ground] {};
+			\node (A) at (0,3) {};
+			\draw (A) to[R=30k$\Omega$] ++(0,-3) -- ++(-2,0) to[battery1,l_=60V] (G);
+			\draw (A) to[R=120k$\Omega$] (G);
+			\draw (A) to[R=120k$\Omega$,l^=$v_0$] ++(2,-3) to[battery1,l=120V] (G);
+		\end{circuitikz}
+\end{enumerate}
+
+\end{document}

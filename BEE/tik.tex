@@ -1,0 +1,23 @@
+
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[a4paper, top=1in, bottom=1in, left=0.8in, right=0.8in]{geometry}
+
+\title{Sample Title}
+\author{Arjun Ghosh}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{tikzpicture}[scale=2]
+	\draw [thick,dashed, rotate=30] (0,0) ellipse [x radius = 50pt, y radius = 100pt] ;
+	\draw [thick,  rotate = 30] (0,-5) -- (0,5);
+	\draw [thick, rotate=30] (-5,0) -- (5,0);
+\end{tikzpicture}
+
+
+\end{document}
